@@ -7,7 +7,7 @@ module Source2MD
 # title2: foo
 EOS
       assert { actual == <<~EOS.strip }
-## foo
+## foo ##
       EOS
     end
   end

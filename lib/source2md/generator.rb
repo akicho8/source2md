@@ -15,7 +15,7 @@ module Source2MD
 
     def to_md
       s = file_blocks.collect(&:to_md) * "\n\n"
-      s = TextHelper.text_squish(s)
+      s = TextHelper.blank_lines_squish(s)
       s = TextHelper.add_newline_at_end_of_text(s)
     end
 
