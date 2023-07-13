@@ -7,9 +7,9 @@ module Source2MD
 
       def to_md
         element.body
-          .gsub(/^# /, "")
-          .sub(/\A\|.*?\|\R?/, "")
-          .sub(/^\|.*?\|\z/, "")
+          .remove(/^# /)
+          .remove(/\A\|-.*?-\|\R?/)
+          .remove(/^\|-.*?-\|\z/)
           .gsub(/-\+-/, "-|-").strip
       end
     end
