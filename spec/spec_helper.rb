@@ -8,7 +8,7 @@ Pathname.glob("#{__dir__}/support/**/*.rb") { |e| require e.to_s }
 
 Zeitwerk::Loader.eager_load_all
 
-Source2MD.quiet = true
+Source2MD.logger.level = :error
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|

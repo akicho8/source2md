@@ -6,10 +6,8 @@ module Source2MD
       end
 
       def to_md
-        unless Source2MD.quiet
-          p element.head[:title2]
-        end
-        "## #{element.head[:title2]}"
+        Source2MD.logger.info { "title2: #{element.head[:title2]}" }
+        "## #{element.head[:title2]} ##"
       end
     end
   end

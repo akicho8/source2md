@@ -1,5 +1,13 @@
 # Source2MD: Markdown generator from source code
 
+## Install ##
+
+```
+$ gem i source2md
+```
+
+## Example ##
+
 input.rb:
 
 ```ruby
