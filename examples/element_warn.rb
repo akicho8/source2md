@@ -1,22 +1,22 @@
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
-# info: (info)
+# info: (foo)
 EOS
 # >> --------------------------------------------------------------------------------
 # >> Source2MD::Type::ElementInfo
 # >> 
 # >> head:
-# >> {:info=>"(info)"}
+# >> {:info=>"(foo)"}
 # >> 
 # >> in:
 # >> 
 # >> 
 # >> out:
 # >> :::message
-# >> (info)
+# >> (foo)
 # >> :::
 # >> --------------------------------------------------------------------------------
 # >> :::message
-# >> (info)
+# >> (foo)
 # >> :::

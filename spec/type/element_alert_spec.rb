@@ -4,11 +4,11 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
-# alert: (alert)
+# alert: (foo)
 EOS
       assert { actual == <<~EOS.strip }
 :::message alert
-(alert)
+(foo)
 :::
       EOS
     end

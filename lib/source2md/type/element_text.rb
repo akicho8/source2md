@@ -1,8 +1,3 @@
-# > # foo
-# > # bar
-# > ↓
-# > foo
-# > bar
 module Source2MD
   module Type
     class ElementText < Base

@@ -4,11 +4,11 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
-code
+(foo)
 EOS
       assert { actual == <<~EOS.strip }
 ```ruby
-code
+(foo)
 ```
       EOS
     end

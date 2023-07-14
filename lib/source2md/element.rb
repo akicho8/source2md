@@ -12,7 +12,9 @@ module Source2MD
       Type::ElementTable,
       Type::ElementDeepComment,
       Type::ElementText,
+      Type::ElementSourceBlock,
       Type::ElementPre,
+      Type::ElementElse,
     ]
 
     def initialize(content)

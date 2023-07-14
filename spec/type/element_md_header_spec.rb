@@ -16,19 +16,8 @@ foo: 1
     end
   end
 end
-# >> F
-# >>
-# >> Failures:
-# >>
-# >>   1) works
-# >>      Failure/Error: Unable to find - to read failed line
-# >>      Test::Unit::AssertionFailedError:
-# >>      # -:14:in `block (2 levels) in <module:Source2MD>'
-# >>
-# >> Finished in 0.0113 seconds (files took 0.26182 seconds to load)
-# >> 1 example, 1 failure
-# >>
-# >> Failed examples:
-# >>
-# >> rspec -:5 # works
-# >>
+# >> .
+# >> 
+# >> Finished in 0.00676 seconds (files took 0.2391 seconds to load)
+# >> 1 example, 0 failures
+# >> 
