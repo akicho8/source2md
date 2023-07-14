@@ -14,13 +14,13 @@ module Source2MD
     private
 
     def to_md
-      s = file_blocks.collect(&:to_md) * "\n\n"
+      s = sheets.collect(&:to_md) * "\n\n"
       s = TextHelper.blank_lines_squish(s)
       s = TextHelper.add_newline_at_end_of_text(s)
     end
 
-    def file_blocks
-      @file_blocks ||= files.collect { |e| FileBlock.new(e) }
+    def sheets
+      @sheets ||= files.collect { |e| Sheet.new(e.read) }
     end
 
     def files
