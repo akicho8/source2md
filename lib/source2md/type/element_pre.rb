@@ -2,7 +2,7 @@ module Source2MD
   module Type
     class ElementPre < Base
       def self.accept?(element)
-        element.body.present?
+        !element.body.empty?
       end
 
       def to_md

@@ -7,7 +7,7 @@ module Source2MD
   module Type
     class ElementText < Base
       def self.accept?(element)
-        if element.head.blank?
+        if element.head.empty?
           element.body.lines.all? { |e| e.start_with?("# ") }
         end
       end

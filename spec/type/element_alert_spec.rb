@@ -4,9 +4,13 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
-require "./setup"
+# alert: (alert)
 EOS
-      assert { actual.nil? }
+      assert { actual == <<~EOS.strip }
+:::message alert
+(alert)
+:::
+      EOS
     end
   end
 end

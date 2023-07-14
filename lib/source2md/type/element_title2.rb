@@ -6,7 +6,7 @@ module Source2MD
       end
 
       def to_md
-        Source2MD.logger.info { "title2: #{element.head[:title2]}" }
+        Source2MD.logger.warn { "title2: #{element.head[:title2]}" }
         "## #{element.head[:title2]} ##"
       end
     end

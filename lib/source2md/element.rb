@@ -6,6 +6,8 @@ module Source2MD
       Type::ElementReject,
       Type::ElementMdHeader,
       Type::ElementTitle2,
+      Type::ElementWarn,
+      Type::ElementAlert,
       Type::ElementMethod,
       Type::ElementTable,
       Type::ElementDeepComment,
