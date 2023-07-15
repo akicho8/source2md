@@ -5,6 +5,7 @@ module Source2MD
     PLUGINS = [
       Type::ElementReject,
       Type::ElementMdHeader,
+      Type::ElementSharp,
       Type::ElementTitle3,
       Type::ElementTitle2,
       Type::ElementWarn,
