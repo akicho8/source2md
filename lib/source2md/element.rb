@@ -24,7 +24,10 @@ module Source2MD
     end
 
     def to_md
-      support_klass.new(self).to_md
+      object = support_klass.new(self)
+      object.to_md.tap do |e|
+        debug_log(e)
+      end
     end
 
     def head
@@ -38,7 +41,26 @@ module Source2MD
     private
 
     def support_klass
-      PLUGINS.find { |e| e.accept?(self) }
+      @support_klass ||= PLUGINS.find { |e| e.accept?(self) }
+    end
+
+    def debug_log(md)
+      Source2MD.logger.debug do
+        o = []
+        o << "-" * 80
+        o << object.class.name
+        o << ""
+        o << "head:"
+        o << head
+        o << ""
+        o << "in:"
+        o << body
+        o << ""
+        o << "out:"
+        o << md
+        o << "-" * 80
+        o.compact * "\n"
+      end
     end
   end
 end

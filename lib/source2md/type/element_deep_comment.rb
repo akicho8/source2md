@@ -5,7 +5,7 @@ module Source2MD
         element.body.match?(/^##/)
       end
 
-      def render
+      def to_md
         CodeBlock.new(body).to_md
       end
 

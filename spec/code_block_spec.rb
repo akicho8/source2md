@@ -9,7 +9,7 @@ module Source2MD
         bb   # => 2
         cccc
       EOS
-      assert { s == <<~EOS.strip }
+      s.should == <<~EOS.strip
         ```ruby
         a   # => 1
 

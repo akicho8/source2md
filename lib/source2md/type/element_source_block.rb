@@ -5,7 +5,7 @@ module Source2MD
         element.body.start_with?("#+BEGIN_SRC")
       end
 
-      def render
+      def to_md
         CodeBlock.new(body, desc: code_block_desc).to_md
       end
 

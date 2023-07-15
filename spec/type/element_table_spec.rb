@@ -11,7 +11,7 @@ module Source2MD
 # | d | d | d |
 # |---+---+---|
 EOS
-      assert { actual == <<~EOS.strip }
+      actual.should == <<~EOS.strip
 | h | h | h |
 |---|---|---|
 | d | d | d |
@@ -25,7 +25,7 @@ EOS
 # |---+---+---|
 # | d | d | d |
 EOS
-      assert { actual == <<~EOS.strip }
+      actual.should == <<~EOS.strip
 | h | h | h |
 |---|---|---|
 | d | d | d |

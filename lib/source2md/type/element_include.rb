@@ -11,7 +11,7 @@ module Source2MD
         @user_define_path, @desc = element.head[:include].split(/\s+/, 2)
       end
 
-      def render
+      def to_md
         CodeBlock.new(body, code_block_options).to_md
       end
 

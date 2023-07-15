@@ -5,7 +5,7 @@ module Source2MD
         element.head[:name]
       end
 
-      def render
+      def to_md
         [
           "### #{element.head[:name]} ###",
           element.head[:desc],

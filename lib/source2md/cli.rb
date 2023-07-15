@@ -16,7 +16,7 @@ module Source2MD
       tp Source2MD.config
     end
 
-    default_command :generate
+    # default_command :generate
 
     map "g" => :generate
     desc "generate [files]", "Markdown generation"

@@ -8,7 +8,7 @@ module Source2MD
 #   http://example.com/
 # - bar: http://example.com/
 EOS
-      assert { actual == <<~EOS.strip }
+      actual.should == <<~EOS.strip
 - foo
   http://example.com/
 - bar: http://example.com/

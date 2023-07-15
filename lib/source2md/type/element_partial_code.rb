@@ -5,7 +5,7 @@ module Source2MD
         !element.body.empty?
       end
 
-      def render
+      def to_md
         CodeBlock.new(element.body).to_md
       end
     end

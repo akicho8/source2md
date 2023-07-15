@@ -7,7 +7,7 @@ module Source2MD
         end
       end
 
-      def render
+      def to_md
         body
       end
 

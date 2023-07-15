@@ -8,7 +8,7 @@ module Source2MD
 foo: 1
 ---
 EOS
-      assert { actual == <<~EOS.strip }
+      actual.should == <<~EOS.strip
 ---
 foo: 1
 ---
@@ -16,8 +16,3 @@ foo: 1
     end
   end
 end
-# >> .
-# >> 
-# >> Finished in 0.00676 seconds (files took 0.2391 seconds to load)
-# >> 1 example, 0 failures
-# >> 
