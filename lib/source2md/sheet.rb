@@ -5,7 +5,7 @@ module Source2MD
     end
 
     def to_md
-      elements.collect(&:to_md).compact * "\n\n"
+      elements.collect(&:to_md_with_debug).compact * "\n\n"
     end
 
     private

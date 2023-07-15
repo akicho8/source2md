@@ -5,7 +5,7 @@ module Source2MD
         true
       end
 
-      def to_md
+      def render
         p "-" * 80
         p element.head
         p element.body

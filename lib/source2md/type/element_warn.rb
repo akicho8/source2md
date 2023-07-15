@@ -7,7 +7,7 @@ module Source2MD
         end
       end
 
-      def to_md
+      def render
         [
           ":::message",
           element.head[:warn],

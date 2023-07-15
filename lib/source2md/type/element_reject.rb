@@ -5,7 +5,7 @@ module Source2MD
         element.body.match?(/^require.*setup/)
       end
 
-      def to_md
+      def render
       end
     end
   end

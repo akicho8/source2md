@@ -24,12 +24,16 @@ module Source2MD
 
     def code_block_head
       o = []
-      if s = @options[:lang].presence
+      if s = @options[:desc]
         o << s
-      end
-      if s = @options[:name].presence
-        o << ":"
-        o << s
+      else
+        if s = @options[:lang]
+          o << s
+        end
+        if s = @options[:name]
+          o << ":"
+          o << s
+        end
       end
       o.join
     end

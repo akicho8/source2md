@@ -10,6 +10,9 @@ module Source2MD
       def initialize(element)
         @element = element
 
+      end
+
+      def to_md
         Source2MD.logger.debug do
           o = []
           o << "-" * 80
@@ -22,13 +25,12 @@ module Source2MD
           o << element.body
           o << ""
           o << "out:"
-          o << to_md
+          o << render
           o << "-" * 80
           o.compact * "\n"
         end
-      end
 
-      def to_md
+        render
       end
     end
   end

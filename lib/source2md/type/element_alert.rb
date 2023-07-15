@@ -5,7 +5,7 @@ module Source2MD
         element.head[:alert]
       end
 
-      def to_md
+      def render
         [
           ":::message alert",
           element.head[:alert],

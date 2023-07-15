@@ -5,7 +5,7 @@ module Source2MD
         !element.body.empty? && element.body.lines.all? { |e| e.match?(/^# \|.*\|$/) }
       end
 
-      def to_md
+      def render
         element.body
           .remove(/^# /)
           .remove(/\A\|-.*?-\|\R?/)

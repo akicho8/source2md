@@ -5,7 +5,7 @@ module Source2MD
         element.head.blank? && element.body.match?(/\A(#+)\s+.*\s+\1\z/)
       end
 
-      def to_md
+      def render
         element.body
       end
     end

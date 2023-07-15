@@ -1,7 +1,7 @@
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
-#+BEGIN_SRC
+#+BEGIN_SRC diff xxx:yyy
 (foo)
 #+END_SRC
 EOS
@@ -12,15 +12,17 @@ EOS
 # >> {}
 # >> 
 # >> in:
-# >> #+BEGIN_SRC
+# >> #+BEGIN_SRC diff xxx:yyy
 # >> (foo)
 # >> #+END_SRC
 # >> 
 # >> out:
-# >> ```ruby
+# >> ```diff xxx:yyy
+# >> diff xxx:yyy
 # >> (foo)
 # >> ```
 # >> --------------------------------------------------------------------------------
-# >> ```ruby
+# >> ```diff xxx:yyy
+# >> diff xxx:yyy
 # >> (foo)
 # >> ```

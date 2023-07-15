@@ -7,7 +7,7 @@ module Source2MD
         element.head.keys.any? { |e| e.match?(REGEXP) }
       end
 
-      def to_md
+      def render
         s = [prefix, body, prefix] * " "
         Source2MD.logger.warn { s }
         s

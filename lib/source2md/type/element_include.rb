@@ -5,14 +5,20 @@ module Source2MD
         element.head[:include]
       end
 
-      def to_md
+      def initialize(...)
+        super
+
+        @user_define_path, @desc = element.head[:include].split(/\s+/, 2)
+      end
+
+      def render
         CodeBlock.new(body, code_block_options).to_md
       end
 
       private
 
       def path
-        Pathname(element.head[:include]).expand_path
+        Pathname(@user_define_path).expand_path
       end
 
       def body
@@ -21,6 +27,7 @@ module Source2MD
 
       def code_block_options
         options = element.head.dup
+        options[:desc] ||= @desc
         options[:lang] ||= auto_lang
         options[:name] ||= path.basename
         options
@@ -28,7 +35,7 @@ module Source2MD
 
       def auto_lang
         {
-          ".yml" => "yaml",
+          # ".foo" => "bar",
         }.fetch(path.extname) {
           path.extname.scan(/\w+/).first
         }

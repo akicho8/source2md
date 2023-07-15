@@ -5,7 +5,7 @@ module Source2MD
         element.body.to_s.start_with?("---")
       end
 
-      def to_md
+      def render
         element.body
       end
     end
