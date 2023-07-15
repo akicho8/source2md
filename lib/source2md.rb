@@ -12,6 +12,7 @@ require "thor"
 module Source2MD
   include ActiveSupport::Configurable
   config_accessor(:debug) { false }
+  config_accessor(:xmp_out_exclude) { false }
 end
 
 require "zeitwerk"

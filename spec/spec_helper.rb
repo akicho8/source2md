@@ -9,6 +9,7 @@ Pathname.glob("#{__dir__}/support/**/*.rb") { |e| require e.to_s }
 Zeitwerk::Loader.eager_load_all
 
 Source2MD.logger.level = :error
+Source2MD.xmp_out_exclude = true
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|

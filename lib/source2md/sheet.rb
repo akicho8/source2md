@@ -11,7 +11,9 @@ module Source2MD
     private
 
     def elements
-      @elements ||= Scanner.new(@content).to_a.collect { |e| Element.new(e) }
+      @elements ||= Scanner.new(@content).to_a.collect do |e|
+        Element.new(e)
+      end
     end
   end
 end
