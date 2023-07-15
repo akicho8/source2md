@@ -12,7 +12,7 @@ module Source2MD
 (code2)
 EOS
       assert { actual == <<~EOS.strip }
-### (name)
+### (name) ###
 
 (desc)
 

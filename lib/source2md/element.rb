@@ -3,20 +3,18 @@ module Source2MD
     KEY_VALUE = /^#\+(\S+):\s+(.*)\R?/
 
     PLUGINS = [
-      Type::ElementReject,
-      Type::ElementMdHeader,
-      Type::ElementSharp,
-      Type::ElementTitle3,
-      Type::ElementTitle2,
-      Type::ElementWarn,
-      Type::ElementAlert,
-      Type::ElementMethod,
-      Type::ElementTable,
+      Type::ElementReject,      # require "setup"
+      Type::ElementMdHeader,    # ---
+      Type::ElementMdTitle,       # ## foo ##
+      Type::ElementTitle,       # #+title2: foo
+      Type::ElementWarn,        # #+warn: foo
+      Type::ElementAlert,       # #+alert: foo
+      Type::ElementMethod,      # #+name: foo
+      Type::ElementTable,       # |-
       Type::ElementDeepComment,
-      # Type::ElementMdCodeBlock,
-      Type::ElementSourceBlock,
-      Type::ElementUncomment,
-      Type::ElementPartialCode,
+      Type::ElementSourceBlock, # #+BEGIN_SRC
+      Type::ElementUncomment,   # foo
+      Type::ElementPartialCode, # 1 + 2 # => 3
       Type::ElementElse,
     ]
 

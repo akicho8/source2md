@@ -1,5 +1,5 @@
 # ```yaml:config.yml
-#+plugins:
+# plugins:
 #   extract_words: extract_words1.rb
 #   frequencies: frequencies1.rb
 # ```

@@ -7,7 +7,7 @@ module Source2MD
 
       def to_md
         [
-          "### #{element.head[:name]}",
+          "### #{element.head[:name]} ###",
           element.head[:desc],
           body ? CodeBlock.new(body).to_md : nil,
           element.head[:comment],

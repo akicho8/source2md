@@ -1,6 +1,6 @@
 module Source2MD
   module Type
-    class ElementSharp < Base
+    class ElementMdTitle < Base
       def self.accept?(element)
         element.head.blank? && element.body.match?(/\A(#+)\s+.*\s+\1\z/)
       end

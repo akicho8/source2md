@@ -6,7 +6,7 @@ module Source2MD
       actual = Element.new(<<~EOS).to_md
 #+title2: (foo)
 EOS
-      assert { actual == <<~EOS.strip }
+      actual.should == <<~EOS.strip
 ## (foo) ##
       EOS
     end
