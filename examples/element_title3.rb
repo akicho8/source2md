@@ -1,7 +1,7 @@
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
-# title3: (foo)
+#+title3: (foo)
 EOS
 # >> title3: (foo)
 # >> --------------------------------------------------------------------------------

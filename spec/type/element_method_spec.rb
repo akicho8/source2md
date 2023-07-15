@@ -4,9 +4,9 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
-# name: (name)
-# desc: (desc)
-# comment: (comment)
+#+name: (name)
+#+desc: (desc)
+#+comment: (comment)
 (code1)
 #
 (code2)

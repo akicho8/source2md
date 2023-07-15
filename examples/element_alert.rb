@@ -1,7 +1,7 @@
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
-# alert: (foo)
+#+alert: (foo)
 EOS
 # >> --------------------------------------------------------------------------------
 # >> Source2MD::Type::ElementAlert

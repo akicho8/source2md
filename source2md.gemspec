@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activesupport"
   spec.add_dependency "pathname"
   spec.add_dependency "thor"
+  spec.add_dependency "table_format"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"

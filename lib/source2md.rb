@@ -8,6 +8,7 @@ require "active_support/configurable"
 
 require "pathname"
 require "thor"
+require "table_format"
 
 module Source2MD
   include ActiveSupport::Configurable

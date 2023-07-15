@@ -1,6 +1,6 @@
 module Source2MD
   class Element
-    KEY_VALUE = /^# (\w+):\s+(.*)\R?/
+    KEY_VALUE = /^#\+(\S+):\s+(.*)\R?/
 
     PLUGINS = [
       Type::ElementReject,
@@ -13,9 +13,10 @@ module Source2MD
       Type::ElementMethod,
       Type::ElementTable,
       Type::ElementDeepComment,
-      Type::ElementText,
+      # Type::ElementMdCodeBlock,
       Type::ElementSourceBlock,
-      Type::ElementPre,
+      Type::ElementUncomment,
+      Type::ElementPartialCode,
       Type::ElementElse,
     ]
 

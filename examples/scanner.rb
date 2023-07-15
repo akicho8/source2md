@@ -11,3 +11,14 @@ foo
 
 foo
 EOS
+
+Source2MD::Scanner.new(<<~EOS).to_a # => ["foo", "# ```yaml\n#+foo:\n#   a\n# ```", "bar"]
+foo
+
+# ```yaml
+#+foo:
+#   a
+# ```
+
+bar
+EOS

@@ -4,7 +4,7 @@ puts Source2MD::Element.new(<<~EOS).to_md
 (foo)
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Type::ElementPre
+# >> Source2MD::Type::ElementPartialCode
 # >> 
 # >> head:
 # >> {}

@@ -12,6 +12,8 @@ module Source2MD
       end
 
       Source2MD.xmp_out_exclude = options[:xmp_out_exclude]
+
+      tp Source2MD.config
     end
 
     map "g" => :generate

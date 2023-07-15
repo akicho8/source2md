@@ -1,6 +1,6 @@
 module Source2MD
   module Type
-    class ElementPre < Base
+    class ElementPartialCode < Base
       def self.accept?(element)
         !element.body.empty?
       end

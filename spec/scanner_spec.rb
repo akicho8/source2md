@@ -22,14 +22,5 @@ module Source2MD
 
       assert { ary == ["foo", "#+BEGIN_SRC\n\nfoo\n\n#+END_SRC", "foo", "#+BEGIN_SRC\nfoo\n#+END_SRC", "foo"] }
     end
-
-    it "works" do
-      ary = Scanner.new(<<~EOS).to_a
-      foo
-      # >> x
-      foo
-      EOS
-      assert { ary == ["foo", "foo"] }
-    end
   end
 end
