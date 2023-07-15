@@ -5,19 +5,34 @@ module Source2MD
 
     attr_accessor :code
 
-    def initialize(code)
+    def initialize(code, options = {})
       @code = code
+      @options = {
+        lang: "ruby",
+      }.merge(options)
     end
 
     def to_md
       [
-        "```ruby",
+        "```#{code_block_head}",
         normalized_code,
         "```",
       ] * "\n"
     end
 
     private
+
+    def code_block_head
+      o = []
+      if s = @options[:lang].presence
+        o << s
+      end
+      if s = @options[:name].presence
+        o << ":"
+        o << s
+      end
+      o.join
+    end
 
     def normalized_code
       lines.collect(&method(:normalize)) * "\n"

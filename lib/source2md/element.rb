@@ -1,11 +1,12 @@
 module Source2MD
   class Element
-    KEY_VALUE = /^#\+(\S+):\s+(.*)\R?/
+    KEY_VALUE = /^#\+(\S+):\s*(.*)\R?/
 
     PLUGINS = [
       Type::ElementReject,      # require "setup"
       Type::ElementMdHeader,    # ---
-      Type::ElementMdTitle,       # ## foo ##
+      Type::ElementMdTitle,     # ## foo ##
+      Type::ElementInclude,     # #+include: foo.txt
       Type::ElementTitle,       # #+title2: foo
       Type::ElementWarn,        # #+warn: foo
       Type::ElementAlert,       # #+alert: foo
@@ -27,11 +28,11 @@ module Source2MD
     end
 
     def head
-      @content.scan(KEY_VALUE).to_h.symbolize_keys
+      @content.scan(KEY_VALUE).to_h.symbolize_keys.freeze
     end
 
     def body
-      @content.remove(KEY_VALUE).strip
+      @content.remove(KEY_VALUE).strip.freeze
     end
 
     private
