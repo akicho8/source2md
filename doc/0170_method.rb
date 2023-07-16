@@ -1,6 +1,6 @@
 require "./setup"
 
-### Description of Method ###
+### Explain the method simply ###
 
 #+BEGIN_SRC
 puts Source2MD::Sheet.new(<<~EOS).to_md

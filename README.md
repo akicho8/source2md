@@ -148,7 +148,7 @@ EOS
 > | C++        |  1983 | Bjarne Stroustrup                          |
 > | Python     |  1989 | Guido van Rossum                           |
 
-### Description of Method ###
+### Explain the method simply ###
 
 ```ruby
 puts Source2MD::Sheet.new(<<~EOS).to_md
@@ -183,3 +183,47 @@ EOS
 > ```
 >
 > Comments about reverse
+
+### Warning, Alert Message ###
+
+```ruby
+Exclusive to Zenn
+```
+
+```ruby
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  #+warn: this is warning message
+
+  #+alert: this is alert message
+EOS
+```
+
+> ```
+> :::message
+> this is warning message
+> :::
+> ```
+>
+> ```
+> :::message alert
+> this is alert message
+> :::
+> ```
+
+### Raw Text ###
+
+If no rule applies and the text begins with `#`, remove the `#`.
+
+```ruby
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  # <hr>
+  #
+  # <hr>
+EOS
+```
+
+> ```
+> <hr>
+>
+> <hr>
+> ```
