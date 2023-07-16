@@ -2,7 +2,7 @@ require "./setup"
 
 ### Warning, Alert Message ###
 
-Exclusive to Zenn
+# Exclusive to Zenn
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
