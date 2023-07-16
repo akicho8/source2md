@@ -1,6 +1,6 @@
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) if !$LOAD_PATH.include?(lib)
-require 'source2md/version'
+require "source2md/version"
 
 Gem::Specification.new do |spec|
   spec.name         = "source2md"
@@ -18,11 +18,11 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "zeitwerk"
   spec.add_dependency "activesupport"
   spec.add_dependency "pathname"
-  spec.add_dependency "thor"
   spec.add_dependency "table_format"
+  spec.add_dependency "thor"
+  spec.add_dependency "zeitwerk"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"

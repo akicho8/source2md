@@ -1,9 +1,12 @@
 module Source2MD
   module Type
     class ElementUncomment < Base
+      REGEXP = /^#( |$)/
+
       def self.accept?(element)
         if element.head.empty?
-          element.body.lines.all? { |e| e.start_with?("# ") }
+          # "# xxx\n" or "#\n"
+          element.body.lines.all? { |e| e.match?(REGEXP) }
         end
       end
 
@@ -14,7 +17,7 @@ module Source2MD
       private
 
       def body
-        element.body.gsub(/^# /, "")
+        element.body.remove(REGEXP)
       end
     end
   end

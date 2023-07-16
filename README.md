@@ -1,4 +1,4 @@
-#+Source2MD: Markdown generator from source code
+# Source2MD: Markdown generator from source code #
 
 ## Install ##
 
@@ -6,64 +6,180 @@
 $ gem i source2md
 ```
 
-## Example ##
+## CLI ##
 
-input.rb:
+```
+$ source2md generate -o README.md README.rb
+```
+
+## Rules ##
+
+### Embedding Of Small Code ###
 
 ```ruby
-#+title2: (title)
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  hello = -> {
+    "Hello, world!"
+  }
 
-#+name: (name1)
-#+desc: (desc1)
-#+comment: (comment1)
-"foo1".size                          # => 4
-
-#+name: (name2)
-#+desc: (desc2)
-#+comment: (comment2)
-"foo2".size                          # => 4
-
-# |---+---+---|
-# | x | x | x |
-# |---+---+---|
-# | x | x | x |
-# | x | x | x |
-# |---+---+---|
+  hello.call
+EOS
 ```
 
-↓
+> ```ruby
+> hello = -> {
+>   "Hello, world!"
+> }
+> ```
 
-```shell
-$ source2md generate -o output.md input.rb
-read: input.rb
-write: output.md
-```
+> ```ruby
+> hello.call
+> ```
 
-↓
-
-## (title)
-
-### (name1)
-
-(desc1)
+### Source Block ###
 
 ```ruby
-"foo1".size  # => 4
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  #+BEGIN_SRC
+  hello = -> {
+    "Hello, world!"
+  }
+
+  hello.call
+  #+END_SRC
+EOS
 ```
 
-(comment1)
+> ```ruby
+> hello = -> {
+>   "Hello, world!"
+> }
+>
+> hello.call
+> ```
 
-### (name2)
-
-(desc2)
+### Title ###
 
 ```ruby
-"foo2".size  # => 4
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  #+title1: Title Level 1
+
+  #+title2: Title Level 2
+
+  #+title3: Title Level 3
+
+  #+title4: Title Level 4
+EOS
 ```
 
-(comment2)
+> # Title Level 1 # #
+>
+> ## Title Level 2 # ##
+>
+> ### Title Level 3 # ###
+>
+> #### Title Level 4 # ####
 
-| x | x | x |
-|---|---|---|
-| x | x | x |
-| x | x | x |
+### Markdown Style Title ###
+
+```ruby
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  # Title Level 1 #
+
+  ## Title Level 2 ##
+
+  ### Title Level 3 ###
+
+  #### Title Level 4 ####
+EOS
+```
+
+> # Title Level 1 #
+>
+> ## Title Level 2 ##
+>
+> ### Title Level 3 ###
+>
+> #### Title Level 4 ####
+
+### Text ###
+
+```ruby
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  # Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  # Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+EOS
+```
+
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+### Org-mode Table Style ###
+
+```ruby
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  # |------------+-------+--------------------------------------------|
+  # | Language   | Birth | Creator                                    |
+  # |------------+-------+--------------------------------------------|
+  # | Lisp       |  1958 | John McCarthy                              |
+  # | Fortran    |  1957 | John Backus                                |
+  # | COBOL      |  1959 | Grace Hopper and team                      |
+  # | Algol      |  1958 | International group of computer scientists |
+  # | BASIC      |  1964 | John G. Kemeny and Thomas E. Kurtz         |
+  # | Pascal     |  1970 | Niklaus Wirth                              |
+  # | C          |  1972 | Dennis Ritchie                             |
+  # | Prolog     |  1972 | Alain Colmerauer, Robert Kowalski          |
+  # | C++        |  1983 | Bjarne Stroustrup                          |
+  # | Python     |  1989 | Guido van Rossum                           |
+  # |------------+-------+--------------------------------------------|
+EOS
+```
+
+> | Language   | Birth | Creator                                    |
+> |------------|-------|--------------------------------------------|
+> | Lisp       |  1958 | John McCarthy                              |
+> | Fortran    |  1957 | John Backus                                |
+> | COBOL      |  1959 | Grace Hopper and team                      |
+> | Algol      |  1958 | International group of computer scientists |
+> | BASIC      |  1964 | John G. Kemeny and Thomas E. Kurtz         |
+> | Pascal     |  1970 | Niklaus Wirth                              |
+> | C          |  1972 | Dennis Ritchie                             |
+> | Prolog     |  1972 | Alain Colmerauer, Robert Kowalski          |
+> | C++        |  1983 | Bjarne Stroustrup                          |
+> | Python     |  1989 | Guido van Rossum                           |
+
+### Description of Method ###
+
+```ruby
+puts Source2MD::Sheet.new(<<~EOS).to_md
+  #+name: String#succ
+  #+desc: Returns the next string of self
+  #+comment: Comments about succ
+  "a".succ       # => "b"
+
+  #+name: String#reverse
+  #+desc: reverse the sequence of characters
+  #+comment: Comments about reverse
+  "abc".reverse  # => "cba"
+EOS
+```
+
+> ### String#succ ###
+>
+> Returns the next string of self
+>
+> ```ruby
+> "a".succ  # => "b"
+> ```
+>
+> Comments about succ
+>
+> ### String#reverse ###
+>
+> reverse the sequence of characters
+>
+> ```ruby
+> "abc".reverse  # => "cba"
+> ```
+>
+> Comments about reverse

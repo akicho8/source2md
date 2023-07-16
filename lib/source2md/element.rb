@@ -12,7 +12,6 @@ module Source2MD
       Type::ElementAlert,       # #+alert: foo
       Type::ElementMethod,      # #+name: foo
       Type::ElementTable,       # |-
-      Type::ElementDeepComment,
       Type::ElementSourceBlock, # #+BEGIN_SRC
       Type::ElementUncomment,   # foo
       Type::ElementPartialCode, # 1 + 2 # => 3
@@ -25,17 +24,16 @@ module Source2MD
 
     def to_md
       object = support_klass.new(self)
-      object.to_md.tap do |e|
-        debug_log(e)
-      end
+      debug_log(object)
+      object.to_md
     end
 
     def head
-      @content.scan(KEY_VALUE).to_h.symbolize_keys.freeze
+      @head ||= @content.scan(KEY_VALUE).to_h.symbolize_keys.freeze
     end
 
     def body
-      @content.remove(KEY_VALUE).strip.freeze
+      @body ||= @content.remove(KEY_VALUE).strip.freeze
     end
 
     private
@@ -44,22 +42,19 @@ module Source2MD
       @support_klass ||= PLUGINS.find { |e| e.accept?(self) }
     end
 
-    def debug_log(md)
+    def debug_log(object)
       Source2MD.logger.debug do
         o = []
-        o << "-" * 80
-        o << object.class.name
-        o << ""
-        o << "head:"
+        o << "-" * 80 + " " + object.class.name
         o << head
-        o << ""
-        o << "in:"
+        o << "-" * 60 + " " + "in"
         o << body
         o << ""
-        o << "out:"
-        o << md
-        o << "-" * 80
-        o.compact * "\n"
+        o << "-" * 60 + " " + "out"
+        o << object.to_md
+        o << "-" * 60
+        s = o.compact * "\n"
+        s.gsub(/^/, "> ")
       end
     end
   end
