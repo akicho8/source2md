@@ -3,7 +3,7 @@ require "./setup"
 ### Title ###
 
 #+BEGIN_SRC
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+title1: Title Level 1
 
   #+title2: Title Level 2

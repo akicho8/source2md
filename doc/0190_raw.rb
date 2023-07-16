@@ -5,7 +5,7 @@ require "./setup"
 # If no rule applies and the text begins with `#`, remove the `#`.
 
 #+BEGIN_SRC
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   # <hr>
   #
   # <hr>

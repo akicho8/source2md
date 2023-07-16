@@ -5,7 +5,7 @@ require "./setup"
 Exclusive to Zenn
 
 #+BEGIN_SRC
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+warn: this is warning message
 
   #+alert: this is alert message

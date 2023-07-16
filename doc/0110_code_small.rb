@@ -3,7 +3,7 @@ require "./setup"
 ### Embedding Of Small Code ###
 
 #+BEGIN_SRC
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   hello = -> {
     "Hello, world!"
   }

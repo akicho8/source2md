@@ -3,7 +3,7 @@ require "./setup"
 ### Markdown Style Title ###
 
 #+BEGIN_SRC
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   # Title Level 1 #
 
   ## Title Level 2 ##

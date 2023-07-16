@@ -17,7 +17,7 @@ $ source2md generate -o README.md README.rb
 ### Embedding Of Small Code ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   hello = -> {
     "Hello, world!"
   }
@@ -39,7 +39,7 @@ EOS
 ### Source Block ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+BEGIN_SRC
   hello = -> {
     "Hello, world!"
@@ -61,7 +61,7 @@ EOS
 ### Title ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+title1: Title Level 1
 
   #+title2: Title Level 2
@@ -83,7 +83,7 @@ EOS
 ### Markdown Style Title ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   # Title Level 1 #
 
   ## Title Level 2 ##
@@ -105,7 +105,7 @@ EOS
 ### Text ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   # Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   # Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 EOS
@@ -117,7 +117,7 @@ EOS
 ### Org-mode Table Style ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   # |------------+-------+--------------------------------------------|
   # | Language   | Birth | Creator                                    |
   # |------------+-------+--------------------------------------------|
@@ -151,7 +151,7 @@ EOS
 ### Explain the method simply ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+name: String#succ
   #+desc: Returns the next string of self
   #+comment: Comments about succ
@@ -191,7 +191,7 @@ Exclusive to Zenn
 ```
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+warn: this is warning message
 
   #+alert: this is alert message
@@ -215,7 +215,7 @@ EOS
 If no rule applies and the text begins with `#`, remove the `#`.
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   # <hr>
   #
   # <hr>

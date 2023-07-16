@@ -3,7 +3,7 @@ require "./setup"
 ### Explain the method simply ###
 
 #+BEGIN_SRC
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+name: String#succ
   #+desc: Returns the next string of self
   #+comment: Comments about succ

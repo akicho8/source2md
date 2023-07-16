@@ -1,5 +1,5 @@
 module Source2MD
-  class Sheet
+  class Section
     def initialize(content)
       @content = content
     end
