@@ -2,7 +2,7 @@ require "./setup"
 
 ### Title ###
 
-No number limit.
+# No number limit.
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md

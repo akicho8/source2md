@@ -60,9 +60,7 @@ EOS
 
 ### Title ###
 
-```ruby
 No number limit.
-```
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
@@ -82,9 +80,7 @@ EOS
 
 ### Markdown Style Title ###
 
-```ruby
 The condition is that there are the same number of sharps on the back.
-```
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
@@ -174,9 +170,7 @@ EOS
 
 ### Warning, Alert Message ###
 
-```ruby
 Exclusive to Zenn
-```
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md

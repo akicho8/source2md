@@ -2,7 +2,7 @@ require "./setup"
 
 ### Markdown Style Title ###
 
-The condition is that there are the same number of sharps on the back.
+# The condition is that there are the same number of sharps on the back.
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
