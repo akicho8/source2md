@@ -2,6 +2,8 @@ require "./setup"
 
 ### Markdown Style Title ###
 
+The condition is that there are the same number of sharps on the back.
+
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
   # Title Level 1 #
@@ -9,8 +11,6 @@ puts Source2MD::Section.new(<<~EOS).to_md
   ## Title Level 2 ##
 
   ### Title Level 3 ###
-
-  #### Title Level 4 ####
 EOS
 #+END_SRC
 
@@ -19,5 +19,3 @@ EOS
 # > ## Title Level 2 ##
 # >
 # > ### Title Level 3 ###
-# >
-# > #### Title Level 4 ####

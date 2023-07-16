@@ -4,10 +4,10 @@ require "./setup"
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
-  #+name: String#succ
-  #+desc: Returns the next string of self
-  #+comment: Comments about succ
-  "a".succ                        # => "b"
+  #+name: String#size
+  #+desc: Return the number of characters
+  #+comment: Comments about size
+  "abc".size                        # => 3
 
   #+name: String#reverse
   #+desc: reverse the sequence of characters
@@ -16,15 +16,15 @@ puts Source2MD::Section.new(<<~EOS).to_md
 EOS
 #+END_SRC
 
-# > ### String#succ ###
+# > ### String#size ###
 # >
-# > Returns the next string of self
+# > Return the number of characters
 # >
 # > ```ruby
-# > "a".succ  # => "b"
+# > "abc".size  # => 3
 # > ```
 # >
-# > Comments about succ
+# > Comments about size
 # >
 # > ### String#reverse ###
 # >

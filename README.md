@@ -61,14 +61,16 @@ EOS
 ### Title ###
 
 ```ruby
+No number limit.
+```
+
+```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
   #+title1: Title Level 1
 
   #+title2: Title Level 2
 
   #+title3: Title Level 3
-
-  #+title4: Title Level 4
 EOS
 ```
 
@@ -77,10 +79,12 @@ EOS
 > ## Title Level 2 # ##
 >
 > ### Title Level 3 # ###
->
-> #### Title Level 4 # ####
 
 ### Markdown Style Title ###
+
+```ruby
+The condition is that there are the same number of sharps on the back.
+```
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
@@ -89,8 +93,6 @@ puts Source2MD::Section.new(<<~EOS).to_md
   ## Title Level 2 ##
 
   ### Title Level 3 ###
-
-  #### Title Level 4 ####
 EOS
 ```
 
@@ -99,20 +101,6 @@ EOS
 > ## Title Level 2 ##
 >
 > ### Title Level 3 ###
->
-> #### Title Level 4 ####
-
-### Text ###
-
-```ruby
-puts Source2MD::Section.new(<<~EOS).to_md
-  # Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  # Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-EOS
-```
-
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ### Org-mode Table Style ###
 
@@ -152,10 +140,10 @@ EOS
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
-  #+name: String#succ
-  #+desc: Returns the next string of self
-  #+comment: Comments about succ
-  "a".succ       # => "b"
+  #+name: String#size
+  #+desc: Return the number of characters
+  #+comment: Comments about size
+  "abc".size     # => 3
 
   #+name: String#reverse
   #+desc: reverse the sequence of characters
@@ -164,15 +152,15 @@ puts Source2MD::Section.new(<<~EOS).to_md
 EOS
 ```
 
-> ### String#succ ###
+> ### String#size ###
 >
-> Returns the next string of self
+> Return the number of characters
 >
 > ```ruby
-> "a".succ  # => "b"
+> "abc".size  # => 3
 > ```
 >
-> Comments about succ
+> Comments about size
 >
 > ### String#reverse ###
 >
@@ -210,9 +198,23 @@ EOS
 > :::
 > ```
 
-### Raw Text ###
+### Text ###
 
 If no rule applies and the text begins with `#`, remove the `#`.
+
+```ruby
+puts Source2MD::Section.new(<<~EOS).to_md
+  # Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  # Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+EOS
+```
+
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+### Raw Text ###
+
+Same rule as when writing text, simply remove the leading `#`.
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
