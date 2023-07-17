@@ -14,10 +14,12 @@ $ source2md generate -o README.md README.rb
 
 ## Rules ##
 
-### Embedding Of Small Code ###
+### Code snippet ###
+
+Separated by blank lines.
 
 ```ruby
-puts Source2MD::Section.new(<<~EOS).to_md
+puts Source2MD::Sheet.new(<<~EOS).to_md
   hello = -> {
     "Hello, world!"
   }
@@ -36,10 +38,10 @@ EOS
 > hello.call
 > ```
 
-### Source Block ###
+### Source block with many lines ###
 
 ```ruby
-puts Source2MD::Section.new(<<~EOS).to_md
+puts Source2MD::Sheet.new(<<~EOS).to_md
   #+BEGIN_SRC
   hello = -> {
     "Hello, world!"
@@ -58,26 +60,59 @@ EOS
 > hello.call
 > ```
 
-### Include Other File As Code Block ###
+### Hide paragraph ###
 
 ```ruby
-File.write("/tmp/other.html", <<~EOS)
-<p>Hello<p>
-EOS
-
 puts Source2MD::Section.new(<<~EOS).to_md
-  #+include: /tmp/other.html
+  #+hidden: true
+  require "rbconfig"
 
-  #+include: /tmp/other.html xml:SAMPLE
+  RbConfig::CONFIG["platform"]  # => "arm64-darwin22"
 EOS
 ```
 
-> ```html:other.html
-> <p>Hello<p>
+> ```ruby
+> RbConfig::CONFIG["platform"]  # => "arm64-darwin22"
+> ```
+
+### Code include ###
+
+```ruby
+File.write("/tmp/hello.html", <<~EOS)
+<p>Hello</p>
+EOS
+
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+code_include: /tmp/hello.html
+
+  #+code_include: /tmp/hello.html xml:OUTPUT
+EOS
+```
+
+> ````
+> ```html:hello.html
+> <p>Hello</p>
 > ```
 >
-> ```xml:SAMPLE
-> <p>Hello<p>
+> ```xml:OUTPUT
+> <p>Hello</p>
+> ```
+> ````
+
+### Raw include ###
+
+```ruby
+File.write("/tmp/hello.html", <<~EOS)
+<p>Hello</p>
+EOS
+
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+raw_include: /tmp/hello.html
+EOS
+```
+
+> ```
+> <p>Hello</p>
 > ```
 
 ### Title ###
@@ -100,7 +135,7 @@ EOS
 >
 > ### Title Level 3 # ###
 
-### Markdown Style Title ###
+### Markdown style title ###
 
 The condition is that there are the same number of sharps on the back.
 
@@ -120,7 +155,7 @@ EOS
 >
 > ### Title Level 3 ###
 
-### Org-mode Table Style ###
+### Org-mode table style ###
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
@@ -154,7 +189,7 @@ EOS
 > | C++        |  1983 | Bjarne Stroustrup                          |
 > | Python     |  1989 | Guido van Rossum                           |
 
-### Explain the method simply ###
+### Explain method simply ###
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
@@ -190,7 +225,7 @@ EOS
 >
 > Comments about reverse
 
-### Warning, Alert Message ###
+### Warning and Alert message ###
 
 Exclusive to Zenn
 
@@ -228,7 +263,7 @@ EOS
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 > Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-### Raw Text ###
+### Raw text ###
 
 Same rule as when writing text, simply remove the leading `#`.
 

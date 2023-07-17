@@ -1,14 +1,14 @@
 module Source2MD
   module Formatter
-    class TypeInclude < Base
+    class TypeCodeInclude < Base
       def self.accept?(element)
-        element.head["include"]
+        element.head["code_include"]
       end
 
       def initialize(...)
         super
 
-        @user_define_path, @desc = element.head["include"].split(/\s+/, 2)
+        @user_define_path, @desc = element.head["code_include"].split(/\s+/, 2)
       end
 
       def to_md

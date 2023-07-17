@@ -9,6 +9,7 @@ task :o => "open"
 namespace :doc do
   desc "[g] generate README.md"
   task "generate" do
+    Rake::Task["doc:renum"].execute
     system "sh", "-vec", <<~EOT, exception: true
 .bin/source2md generate --no-debug --no-xmp-out-exclude -o README.md doc/0*
 EOT

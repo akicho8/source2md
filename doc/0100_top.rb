@@ -1,3 +1,4 @@
+#+hidden: true
 require "./setup"
 
 # Source2MD: Markdown generator from source code #

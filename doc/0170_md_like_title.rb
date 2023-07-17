@@ -1,6 +1,7 @@
+#+hidden: true
 require "./setup"
 
-### Markdown Style Title ###
+### Markdown style title ###
 
 # The condition is that there are the same number of sharps on the back.
 

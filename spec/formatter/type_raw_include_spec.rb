@@ -4,14 +4,10 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
----
-foo: 1
----
+#+raw_include: #{__dir__}/sample.yml
 EOS
       actual.should == <<~EOS.strip
----
-foo: 1
----
+(yaml)
       EOS
     end
   end

@@ -1,6 +1,7 @@
+#+hidden: true
 require "./setup"
 
-### Warning, Alert Message ###
+### Warning and Alert message ###
 
 # Exclusive to Zenn
 

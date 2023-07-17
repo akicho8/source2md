@@ -1,6 +1,7 @@
+#+hidden: true
 require "./setup"
 
-### Raw Text ###
+### Raw text ###
 
 # Same rule as when writing text, simply remove the leading `#`.
 

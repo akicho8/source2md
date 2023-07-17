@@ -1,12 +1,12 @@
 module Source2MD
   module Formatter
-    class TypeMdHeader < Base
+    class TypeHidden < Base
       def self.accept?(element)
-        element.body.to_s.start_with?("---")
+        element.head["hidden"] == "true"
       end
 
       def to_md
-        element.body
+        ""
       end
     end
   end

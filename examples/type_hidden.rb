@@ -1,3 +1,4 @@
+#+hidden: true
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
@@ -6,7 +7,7 @@ puts Source2MD::Element.new(<<~EOS).to_md
 ---
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Part::TypeMdHeader
+# >> Source2MD::Part::TypeHidden
 # >> 
 # >> head:
 # >> {}

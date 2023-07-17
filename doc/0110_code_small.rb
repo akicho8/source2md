@@ -1,9 +1,12 @@
+#+hidden: true
 require "./setup"
 
-### Embedding Of Small Code ###
+### Code snippet ###
+
+# Separated by blank lines.
 
 #+BEGIN_SRC
-puts Source2MD::Section.new(<<~EOS).to_md
+puts Source2MD::Sheet.new(<<~EOS).to_md
   hello = -> {
     "Hello, world!"
   }

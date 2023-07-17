@@ -4,9 +4,10 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
-require "./setup"
+      #+hidden: true
+      (hidden)
 EOS
-      assert { actual.nil? }
+      assert { actual == "" }
     end
   end
 end

@@ -3,10 +3,10 @@ module Source2MD
     KEY_VALUE_REGEXP = /^#\+(\S+):\s*(.*)\R?/ # #+key: value
 
     PLUGINS = [
-      Formatter::TypeReject,      # require "setup"
-      Formatter::TypeMdHeader,    # ---
+      Formatter::TypeHidden,      # #+hidden: true
       Formatter::TypeMdTitle,     # ## foo ##
-      Formatter::TypeInclude,     # #+include: foo.txt
+      Formatter::TypeCodeInclude, # #+code_include: path/to/foo.html xml:SAMPLE.xml
+      Formatter::TypeRawInclude,  # #+raw_include: path/to/file.txt
       Formatter::TypeTitle,       # #+title2: foo
       Formatter::TypeWarn,        # #+warn: foo
       Formatter::TypeAlert,       # #+alert: foo

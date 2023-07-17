@@ -1,3 +1,4 @@
+#+hidden: true
 require "./setup"
 
 Source2MD::Scanner.new(<<~EOS).to_a # => ["foo", "#+BEGIN_SRC\n\nfoo\n\n#+END_SRC", "foo"]

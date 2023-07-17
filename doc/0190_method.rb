@@ -1,6 +1,7 @@
+#+hidden: true
 require "./setup"
 
-### Explain the method simply ###
+### Explain method simply ###
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md

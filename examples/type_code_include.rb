@@ -1,8 +1,9 @@
+#+hidden: true
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
 
-#+include: input.yml
+#+code_include: input.yml
 #+name:
 
 EOS
