@@ -286,3 +286,19 @@ EOS
 > ```
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 > ```
+
+### Parse include ###
+
+Paste the results of processing other files with the same rules.
+
+```ruby
+File.write("/tmp/hello.rb", <<~EOS)
+# foo
+EOS
+
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+parse_include: /tmp/hello.rb
+EOS
+```
+
+> foo

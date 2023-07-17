@@ -3,18 +3,19 @@ module Source2MD
     KEY_VALUE_REGEXP = /^#\+(\S+):\s*(.*)\R?/ # #+key: value
 
     PLUGINS = [
-      Formatter::TypeHidden,      # #+hidden: true
-      Formatter::TypeMdTitle,     # ## foo ##
-      Formatter::TypeCodeInclude, # #+code_include: path/to/foo.html xml:SAMPLE.xml
-      Formatter::TypeRawInclude,  # #+raw_include: path/to/file.txt
-      Formatter::TypeTitle,       # #+title2: foo
-      Formatter::TypeWarn,        # #+warn: foo
-      Formatter::TypeAlert,       # #+alert: foo
-      Formatter::TypeMethod,      # #+name: foo
-      Formatter::TypeTable,       # # |-
-      Formatter::TypeSourceBlock, # #+BEGIN_SRC
-      Formatter::TypeText,        # # foo
-      Formatter::TypePartialCode, # 1 + 2 # => 3
+      Formatter::TypeHidden,       # #+hidden: true
+      Formatter::TypeMdTitle,      # ## foo ##
+      Formatter::TypeCodeInclude,  # #+code_include: path/to/foo.html xml:SAMPLE.xml
+      Formatter::TypeRawInclude,   # #+raw_include: path/to/file.txt
+      Formatter::TypeParseInclude, # #+parse_include: path/to/file.txt
+      Formatter::TypeTitle,        # #+title2: foo
+      Formatter::TypeWarn,         # #+warn: foo
+      Formatter::TypeAlert,        # #+alert: foo
+      Formatter::TypeMethod,       # #+name: foo
+      Formatter::TypeTable,        # # |-
+      Formatter::TypeSourceBlock,  # #+BEGIN_SRC
+      Formatter::TypeText,         # # foo
+      Formatter::TypePartialCode,  # 1 + 2 # => 3
       Formatter::TypeElse,
     ]
 

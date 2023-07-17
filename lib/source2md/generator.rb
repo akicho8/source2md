@@ -11,20 +11,20 @@ module Source2MD
       puts "write: #{output_file}"
     end
 
-    private
-
     def to_md
       s = sections.collect(&:to_md) * "\n\n"
       s = TextHelper.blank_lines_squish(s)
       s = TextHelper.add_newline_at_end_of_text(s)
     end
 
+    private
+
     def sections
       @sections ||= files.collect { |e| Section.new(e.read) }
     end
 
     def files
-      @files ||= params[:files].collect { |e| Pathname(e) }
+      @files ||= Array(params[:files]).collect { |e| Pathname(e).expand_path }
     end
 
     def output_file
