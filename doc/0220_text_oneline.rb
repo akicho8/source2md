@@ -8,10 +8,11 @@ require "./setup"
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
   #+oneline: true
-  # Lorem ipsum dolor sit amet,
-  # consectetur adipisicing elit,
+  # Lorem ipsum dolor sit amet, consectetur adipisicing elit,
   # sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 EOS
 #+END_SRC
 
-# > Lorem ipsum dolor sit amet,consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+# > ```
+# > Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+# > ```

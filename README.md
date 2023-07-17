@@ -1,6 +1,6 @@
 # Source2MD: Markdown generator from source code #
 
-## Basic Logic ##
+## Logic ##
 
 1. Divide the source code into paragraphs using blank lines as separations.
 1. Remove comments from the comment blocks.
@@ -261,13 +261,15 @@ If no rule applies and the text begins with `#`, remove the `#`.
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
-  # Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  # Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  # Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+  # sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 EOS
 ```
 
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+> ```
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+> ```
 
 ### Oneline Text ###
 
@@ -276,13 +278,14 @@ Using this option allows you to split a line regardless of the markdown library.
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
   #+oneline: true
-  # Lorem ipsum dolor sit amet,
-  # consectetur adipisicing elit,
+  # Lorem ipsum dolor sit amet, consectetur adipisicing elit,
   # sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 EOS
 ```
 
-> Lorem ipsum dolor sit amet,consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+> ```
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+> ```
 
 ### Raw text ###
 
