@@ -19,7 +19,7 @@ $ source2md generate -o README.md README.rb
 Separated by blank lines.
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   hello = -> {
     "Hello, world!"
   }
@@ -41,7 +41,7 @@ EOS
 ### Source block with many lines ###
 
 ```ruby
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+BEGIN_SRC
   hello = -> {
     "Hello, world!"

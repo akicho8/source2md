@@ -4,7 +4,7 @@ require "./setup"
 ### Source block with many lines ###
 
 #+BEGIN_SRC
-puts Source2MD::Sheet.new(<<~EOS).to_md
+puts Source2MD::Section.new(<<~EOS).to_md
   #+BEGIN_SRC
   hello = -> {
     "Hello, world!"
