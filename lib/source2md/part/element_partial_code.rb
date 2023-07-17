@@ -1,5 +1,5 @@
 module Source2MD
-  module Type
+  module Part
     class ElementPartialCode < Base
       def self.accept?(element)
         !element.body.empty?

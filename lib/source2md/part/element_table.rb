@@ -1,5 +1,5 @@
 module Source2MD
-  module Type
+  module Part
     class ElementTable < Base
       def self.accept?(element)
         !element.body.empty? && element.body.lines.all? { |e| e.match?(/^# \|.*\|$/) }

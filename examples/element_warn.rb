@@ -4,7 +4,7 @@ puts Source2MD::Element.new(<<~EOS).to_md
 #+info: (foo)
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Type::ElementInfo
+# >> Source2MD::Part::ElementInfo
 # >> 
 # >> head:
 # >> {:info=>"(foo)"}

@@ -1,21 +1,21 @@
 module Source2MD
   class Element
-    KEY_VALUE = /^#\+(\S+):\s*(.*)\R?/
+    KEY_VALUE_REGEXP = /^#\+(\S+):\s*(.*)\R?/ # #+key: value
 
     PLUGINS = [
-      Type::ElementReject,      # require "setup"
-      Type::ElementMdHeader,    # ---
-      Type::ElementMdTitle,     # ## foo ##
-      Type::ElementInclude,     # #+include: foo.txt
-      Type::ElementTitle,       # #+title2: foo
-      Type::ElementWarn,        # #+warn: foo
-      Type::ElementAlert,       # #+alert: foo
-      Type::ElementMethod,      # #+name: foo
-      Type::ElementTable,       # |-
-      Type::ElementSourceBlock, # #+BEGIN_SRC
-      Type::ElementUncomment,   # foo
-      Type::ElementPartialCode, # 1 + 2 # => 3
-      Type::ElementElse,
+      Part::ElementReject,      # require "setup"
+      Part::ElementMdHeader,    # ---
+      Part::ElementMdTitle,     # ## foo ##
+      Part::ElementInclude,     # #+include: foo.txt
+      Part::ElementTitle,       # #+title2: foo
+      Part::ElementWarn,        # #+warn: foo
+      Part::ElementAlert,       # #+alert: foo
+      Part::ElementMethod,      # #+name: foo
+      Part::ElementTable,       # # |-
+      Part::ElementSourceBlock, # #+BEGIN_SRC
+      Part::ElementUncomment,   # # foo
+      Part::ElementPartialCode, # 1 + 2 # => 3
+      Part::ElementElse,
     ]
 
     def initialize(content)
@@ -29,11 +29,11 @@ module Source2MD
     end
 
     def head
-      @head ||= @content.scan(KEY_VALUE).to_h.symbolize_keys.freeze
+      @head ||= @content.scan(KEY_VALUE_REGEXP).to_h.symbolize_keys.freeze
     end
 
     def body
-      @body ||= @content.remove(KEY_VALUE).strip.freeze
+      @body ||= @content.remove(KEY_VALUE_REGEXP).strip.freeze
     end
 
     private

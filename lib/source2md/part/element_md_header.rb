@@ -1,5 +1,5 @@
 module Source2MD
-  module Type
+  module Part
     class ElementMdHeader < Base
       def self.accept?(element)
         element.body.to_s.start_with?("---")

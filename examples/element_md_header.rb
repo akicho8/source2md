@@ -6,7 +6,7 @@ puts Source2MD::Element.new(<<~EOS).to_md
 ---
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Type::ElementMdHeader
+# >> Source2MD::Part::ElementMdHeader
 # >> 
 # >> head:
 # >> {}

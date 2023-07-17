@@ -4,7 +4,7 @@ puts Source2MD::Element.new(<<~EOS).to_md
 require "setup"
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Type::ElementReject
+# >> Source2MD::Part::ElementReject
 # >> 
 # >> head:
 # >> {}

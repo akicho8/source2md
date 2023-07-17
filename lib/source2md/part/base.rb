@@ -1,5 +1,5 @@
 module Source2MD
-  module Type
+  module Part
     class Base
       def self.accept?(element)
         false

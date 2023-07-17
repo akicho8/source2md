@@ -1,5 +1,5 @@
 module Source2MD
-  module Type
+  module Part
     class ElementMdTitle < Base
       def self.accept?(element)
         element.head.blank? && element.body.match?(/\A(#+)\s+.*\s+\1\z/)
