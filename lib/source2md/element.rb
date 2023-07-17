@@ -29,7 +29,7 @@ module Source2MD
     end
 
     def head
-      @head ||= @content.scan(KEY_VALUE_REGEXP).to_h.symbolize_keys.freeze
+      @head ||= @content.scan(KEY_VALUE_REGEXP).to_h.freeze
     end
 
     def body

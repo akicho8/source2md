@@ -2,13 +2,13 @@ module Source2MD
   module Formatter
     class ElementInclude < Base
       def self.accept?(element)
-        element.head[:include]
+        element.head["include"]
       end
 
       def initialize(...)
         super
 
-        @user_define_path, @desc = element.head[:include].split(/\s+/, 2)
+        @user_define_path, @desc = element.head["include"].split(/\s+/, 2)
       end
 
       def to_md
@@ -26,7 +26,7 @@ module Source2MD
       end
 
       def code_block_options
-        options = element.head.dup
+        options = element.head.dup.to_options
         options[:desc] ||= @desc
         options[:lang] ||= auto_lang
         options[:name] ||= path.basename

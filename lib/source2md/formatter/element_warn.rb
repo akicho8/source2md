@@ -3,14 +3,14 @@ module Source2MD
     class ElementWarn < Base
       def self.accept?(element)
         if element.body.empty?
-          element.head[:warn]
+          element.head["warn"]
         end
       end
 
       def to_md
         [
           ":::message",
-          element.head[:warn],
+          element.head["warn"],
           ":::",
         ] * "\n"
       end

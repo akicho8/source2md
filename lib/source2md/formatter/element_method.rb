@@ -2,15 +2,15 @@ module Source2MD
   module Formatter
     class ElementMethod < Base
       def self.accept?(element)
-        element.head[:name]
+        element.head["name"]
       end
 
       def to_md
         [
-          "### #{element.head[:name]} ###",
-          element.head[:desc],
+          "### #{element.head["name"]} ###",
+          element.head["desc"],
           body ? CodeBlock.new(body).to_md : nil,
-          element.head[:comment],
+          element.head["comment"],
         ].compact * "\n\n"
       end
 
