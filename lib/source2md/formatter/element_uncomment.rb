@@ -1,11 +1,12 @@
 module Source2MD
   module Formatter
     class ElementUncomment < Base
+      # "# xxx"
+      # "#"
       REGEXP = /^#( |$)/
 
       def self.accept?(element)
         if element.head.empty?
-          # "# xxx\n" or "#\n"
           element.body.lines.all? { |e| e.match?(REGEXP) }
         end
       end

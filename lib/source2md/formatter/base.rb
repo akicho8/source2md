@@ -11,10 +11,9 @@ module Source2MD
         @element = element
       end
 
-      # def to_md
-      # 
-      #   to_md
-      # end
+      def to_md
+        raise NotImplementedError, "#{__method__} is not implemented"
+      end
     end
   end
 end
