@@ -5,7 +5,7 @@ puts Source2MD::Element.new(<<~EOS).to_md
 #   https://example.com/
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Part::ElementUncomment
+# >> Source2MD::Part::TypeUncomment
 # >> 
 # >> head:
 # >> {}

@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementMdTitle < Base
+    class TypeMdTitle < Base
       def self.accept?(element)
         element.head.blank? && element.body.match?(/\A(#+)\s+.*\s+\1\z/)
       end

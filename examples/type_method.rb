@@ -9,7 +9,7 @@ code1
 code2
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Part::ElementMethod
+# >> Source2MD::Part::TypeMethod
 # >> 
 # >> head:
 # >> {:name=>"(name)", :desc=>"(desc)", :comment=>"(comment)"}

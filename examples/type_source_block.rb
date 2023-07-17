@@ -1,24 +1,28 @@
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
-#+title2: (foo)
+#+BEGIN_SRC diff xxx:yyy
+(foo)
+#+END_SRC
 EOS
-# >> title2: (foo)
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Part::ElementTitle
-# >>
+# >> Source2MD::Part::TypeSourceBlock
+# >> 
 # >> head:
-# >> {:title2=>"(foo)"}
-# >>
+# >> {}
+# >> 
 # >> in:
-# >>
-# >>
+# >> #+BEGIN_SRC diff xxx:yyy
+# >> (foo)
+# >> #+END_SRC
+# >> 
 # >> out:
-# >>
+# >> ```diff xxx:yyy
+# >> diff xxx:yyy
 # >> (foo)
-# >>
+# >> ```
 # >> --------------------------------------------------------------------------------
-# >> title2: (foo)
-# >>
+# >> ```diff xxx:yyy
+# >> diff xxx:yyy
 # >> (foo)
-# >>
+# >> ```

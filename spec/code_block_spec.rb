@@ -12,7 +12,7 @@ module Source2MD
       s.should == <<~EOS.strip
         ```ruby
         a   # => 1
-
+        #
         bb  # => 2
         cccc
         ```

@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementMethod < Base
+    class TypeMethod < Base
       def self.accept?(element)
         element.head["name"]
       end
@@ -9,7 +9,7 @@ module Source2MD
         [
           "### #{element.head["name"]} ###",
           element.head["desc"],
-          body ? CodeBlock.new(body).to_md : nil,
+          CodeBlock.new(body).to_md,
           element.head["comment"],
         ].compact * "\n\n"
       end
@@ -17,7 +17,7 @@ module Source2MD
       private
 
       def body
-        element.body.gsub(/^\#$/, "").presence
+        element.body.gsub(/^\#$/, "")
       end
     end
   end

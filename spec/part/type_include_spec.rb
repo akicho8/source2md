@@ -8,7 +8,7 @@ module Source2MD
 EOS
       actual.should == <<~EOS.strip
 ```yml:sample.yml
-yaml content
+(yaml)
 ```
       EOS
     end
@@ -21,7 +21,7 @@ yaml content
 EOS
       actual.should == <<~EOS.strip
 ```(lang):(name)
-yaml content
+(yaml)
 ```
       EOS
     end
@@ -32,7 +32,7 @@ yaml content
 EOS
       actual.should == <<~EOS.strip
 ```yaml:filename
-yaml content
+(yaml)
 ```
       EOS
     end

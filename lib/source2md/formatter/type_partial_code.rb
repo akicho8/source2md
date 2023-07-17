@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementPartialCode < Base
+    class TypePartialCode < Base
       def self.accept?(element)
         !element.body.empty?
       end

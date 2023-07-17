@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementTable < Base
+    class TypeTable < Base
       def self.accept?(element)
         !element.body.empty? && element.body.lines.all? { |e| e.match?(/^# \|.*\|$/) }
       end

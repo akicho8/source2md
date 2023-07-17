@@ -8,7 +8,8 @@ module Source2MD
     def initialize(code, options = {})
       @code = code
       @options = {
-        lang: "ruby",
+        :lang => "ruby",
+        # :single_sharp_replace_to_blank_line => false,
       }.merge(options)
     end
 
@@ -43,13 +44,18 @@ module Source2MD
     end
 
     def normalize(line)
-      line = single_sharp_replace_to_blank_line(line)
-      line = comment_mark_justfiy(line)
+      # if @options[:single_sharp_replace_to_blank_line]
+      #   line = single_sharp_replace_to_blank_line(line)
+      # end
+      if @options[:lang] == "ruby"
+        line = comment_mark_justfiy(line)
+      end
+      line
     end
 
-    def single_sharp_replace_to_blank_line(line)
-      line.gsub(/\A#\z/, "")
-    end
+    # def single_sharp_replace_to_blank_line(line)
+    #   line.gsub(/\A#\z/, "")
+    # end
 
     def comment_mark_justfiy(line)
       line.gsub(/(.*?)\s*#{MARK}(.*)/) {

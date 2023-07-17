@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementInclude < Base
+    class TypeInclude < Base
       def self.accept?(element)
         element.head["include"]
       end

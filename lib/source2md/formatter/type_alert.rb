@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementAlert < Base
+    class TypeAlert < Base
       def self.accept?(element)
         element.head["alert"]
       end

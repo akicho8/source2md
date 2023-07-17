@@ -1,12 +1,11 @@
 module Source2MD
   module Formatter
-    class ElementMdHeader < Base
+    class TypeReject < Base
       def self.accept?(element)
-        element.body.to_s.start_with?("---")
+        element.body.match?(/^require.*setup/)
       end
 
       def to_md
-        element.body
       end
     end
   end

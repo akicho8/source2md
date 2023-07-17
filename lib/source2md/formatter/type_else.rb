@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementElse < Base
+    class TypeElse < Base
       def self.accept?(element)
         true
       end

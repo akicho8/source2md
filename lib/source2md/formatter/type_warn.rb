@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementWarn < Base
+    class TypeWarn < Base
       def self.accept?(element)
         if element.body.empty?
           element.head["warn"]

@@ -58,6 +58,28 @@ EOS
 > hello.call
 > ```
 
+### Include Other File As Code Block ###
+
+```ruby
+File.write("/tmp/other.html", <<~EOS)
+<p>Hello<p>
+EOS
+
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+include: /tmp/other.html
+
+  #+include: /tmp/other.html xml:SAMPLE
+EOS
+```
+
+> ```html:other.html
+> <p>Hello<p>
+> ```
+>
+> ```xml:SAMPLE
+> <p>Hello<p>
+> ```
+
 ### Title ###
 
 No number limit.

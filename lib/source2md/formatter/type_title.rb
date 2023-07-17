@@ -1,6 +1,6 @@
 module Source2MD
   module Formatter
-    class ElementTitle < Base
+    class TypeTitle < Base
       REGEXP = /\Atitle(\d+)\z/
 
       def self.accept?(element)

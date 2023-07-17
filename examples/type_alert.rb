@@ -1,22 +1,22 @@
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
-(foo)
+#+alert: (foo)
 EOS
 # >> --------------------------------------------------------------------------------
-# >> Source2MD::Part::ElementPartialCode
+# >> Source2MD::Part::TypeAlert
 # >> 
 # >> head:
-# >> {}
+# >> {:alert=>"(foo)"}
 # >> 
 # >> in:
-# >> (foo)
+# >> 
 # >> 
 # >> out:
-# >> ```ruby
+# >> :::message alert
 # >> (foo)
-# >> ```
+# >> :::
 # >> --------------------------------------------------------------------------------
-# >> ```ruby
+# >> :::message alert
 # >> (foo)
-# >> ```
+# >> :::
