@@ -13,7 +13,7 @@ module Source2MD
       Formatter::TypeMethod,      # #+name: foo
       Formatter::TypeTable,       # # |-
       Formatter::TypeSourceBlock, # #+BEGIN_SRC
-      Formatter::TypeUncomment,   # # foo
+      Formatter::TypeText,        # # foo
       Formatter::TypePartialCode, # 1 + 2 # => 3
       Formatter::TypeElse,
     ]

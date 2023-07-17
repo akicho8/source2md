@@ -1,10 +1,10 @@
 # Source2MD: Markdown generator from source code #
 
-## Logic ##
+## Basic Logic ##
 
 1. Divide the source code into paragraphs using blank lines as separations.
-1. Remove start character of comments from the comment blocks.
-1. The code is embed within the code block.
+1. Remove comments from the comment blocks.
+1. Include the code within the code block.
 
 ## Install ##
 
@@ -268,6 +268,21 @@ EOS
 
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 > Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+### Oneline Text ###
+
+Using this option allows you to split a line regardless of the markdown library.
+
+```ruby
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+oneline: true
+  # Lorem ipsum dolor sit amet,
+  # consectetur adipisicing elit,
+  # sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+EOS
+```
+
+> Lorem ipsum dolor sit amet,consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 ### Raw text ###
 
