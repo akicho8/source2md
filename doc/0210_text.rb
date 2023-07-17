@@ -1,7 +1,7 @@
 #+hidden: true
 require "./setup"
 
-### Text ###
+### Raw Text ###
 
 # If no rule applies and the text begins with `#`, remove the `#`.
 

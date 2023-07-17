@@ -255,7 +255,7 @@ EOS
 > :::
 > ```
 
-### Text ###
+### Raw Text ###
 
 If no rule applies and the text begins with `#`, remove the `#`.
 
@@ -285,22 +285,4 @@ EOS
 
 > ```
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-> ```
-
-### Raw text ###
-
-Same rule as when writing text, simply remove the leading `#`.
-
-```ruby
-puts Source2MD::Section.new(<<~EOS).to_md
-  # <hr>
-  #
-  # <hr>
-EOS
-```
-
-> ```
-> <hr>
->
-> <hr>
 > ```
