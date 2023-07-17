@@ -1,5 +1,5 @@
 module Source2MD
-  module Part
+  module Formatter
     class ElementWarn < Base
       def self.accept?(element)
         if element.body.empty?

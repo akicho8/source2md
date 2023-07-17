@@ -1,5 +1,5 @@
 module Source2MD
-  module Part
+  module Formatter
     class ElementSourceBlock < Base
       def self.accept?(element)
         element.body.start_with?("#+BEGIN_SRC")

@@ -1,5 +1,5 @@
 module Source2MD
-  module Part
+  module Formatter
     class ElementUncomment < Base
       REGEXP = /^#( |$)/
 

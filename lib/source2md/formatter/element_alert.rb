@@ -1,5 +1,5 @@
 module Source2MD
-  module Part
+  module Formatter
     class ElementAlert < Base
       def self.accept?(element)
         element.head[:alert]

@@ -1,5 +1,5 @@
 module Source2MD
-  module Part
+  module Formatter
     class ElementTitle < Base
       REGEXP = /\Atitle(\d+)\z/
 

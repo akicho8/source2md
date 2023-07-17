@@ -3,19 +3,19 @@ module Source2MD
     KEY_VALUE_REGEXP = /^#\+(\S+):\s*(.*)\R?/ # #+key: value
 
     PLUGINS = [
-      Part::ElementReject,      # require "setup"
-      Part::ElementMdHeader,    # ---
-      Part::ElementMdTitle,     # ## foo ##
-      Part::ElementInclude,     # #+include: foo.txt
-      Part::ElementTitle,       # #+title2: foo
-      Part::ElementWarn,        # #+warn: foo
-      Part::ElementAlert,       # #+alert: foo
-      Part::ElementMethod,      # #+name: foo
-      Part::ElementTable,       # # |-
-      Part::ElementSourceBlock, # #+BEGIN_SRC
-      Part::ElementUncomment,   # # foo
-      Part::ElementPartialCode, # 1 + 2 # => 3
-      Part::ElementElse,
+      Formatter::ElementReject,      # require "setup"
+      Formatter::ElementMdHeader,    # ---
+      Formatter::ElementMdTitle,     # ## foo ##
+      Formatter::ElementInclude,     # #+include: foo.txt
+      Formatter::ElementTitle,       # #+title2: foo
+      Formatter::ElementWarn,        # #+warn: foo
+      Formatter::ElementAlert,       # #+alert: foo
+      Formatter::ElementMethod,      # #+name: foo
+      Formatter::ElementTable,       # # |-
+      Formatter::ElementSourceBlock, # #+BEGIN_SRC
+      Formatter::ElementUncomment,   # # foo
+      Formatter::ElementPartialCode, # 1 + 2 # => 3
+      Formatter::ElementElse,
     ]
 
     def initialize(content)

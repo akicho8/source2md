@@ -1,5 +1,5 @@
 module Source2MD
-  module Part
+  module Formatter
     class ElementReject < Base
       def self.accept?(element)
         element.body.match?(/^require.*setup/)

@@ -1,5 +1,5 @@
 module Source2MD
-  module Part
+  module Formatter
     class Base
       def self.accept?(element)
         false
