@@ -2,7 +2,7 @@ module Source2MD
   class Scanner
     SEPARATOR           = "\\R{2,}"
 
-    MD_CODE_BLOCK_REGEXP = /^# ```.*?^# ```/m
+    # MD_CODE_BLOCK_REGEXP = /^# ```.*?^# ```/m
 
     BEGIN_KEY           = "BEGIN_SRC"
     END_KEY             = "END_SRC"
@@ -11,7 +11,7 @@ module Source2MD
     NORMAL_BLOCK_REGEXP = /.*?#{SEPARATOR}/m
 
     PARAGRAPH_REGEXP = Regexp.union [
-      MD_CODE_BLOCK_REGEXP,
+      # MD_CODE_BLOCK_REGEXP,
       SOURCE_BLOCK_REGEXP,
       NORMAL_BLOCK_REGEXP,
     ]
