@@ -15,8 +15,10 @@ puts Source2MD::Section.new(<<~EOS).to_md
 EOS
 #+END_SRC
 
-# > # Title Level 1 #
-# >
-# > ## Title Level 2 ##
-# >
-# > ### Title Level 3 ###
+# ```
+# # Title Level 1 #
+#
+# ## Title Level 2 ##
+#
+# ### Title Level 3 ###
+# ```

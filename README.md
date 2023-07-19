@@ -71,22 +71,24 @@ EOS
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
   #+hidden: true
-  require "rbconfig"
+  p "This paragraph is not displayed"
 
-  RbConfig::CONFIG["platform"]  # => "arm64-darwin22"
+  p "This paragraph is displayed"
 EOS
 ```
 
 > ```ruby
-> RbConfig::CONFIG["platform"]  # => "arm64-darwin22"
+> p "This paragraph is displayed"
 > ```
 
 ### Code include ###
 
 ```ruby
-File.write("/tmp/hello.html", <<~EOS)
-<p>Hello</p>
-EOS
+Insert inside the code block.
+```
+
+```ruby
+File.write("/tmp/hello.html", "<p>Hello</p>")
 
 puts Source2MD::Section.new(<<~EOS).to_md
   #+code_include: /tmp/hello.html
@@ -108,9 +110,7 @@ EOS
 ### Raw include ###
 
 ```ruby
-File.write("/tmp/hello.html", <<~EOS)
-<p>Hello</p>
-EOS
+File.write("/tmp/hello.html", "<p>Hello</p>")
 
 puts Source2MD::Section.new(<<~EOS).to_md
   #+raw_include: /tmp/hello.html
@@ -135,11 +135,13 @@ puts Source2MD::Section.new(<<~EOS).to_md
 EOS
 ```
 
-> # Title Level 1 # #
->
-> ## Title Level 2 # ##
->
-> ### Title Level 3 # ###
+```
+# Title Level 1 #
+
+## Title Level 2 ##
+
+### Title Level 3 ###
+```
 
 ### Markdown style title ###
 
@@ -155,11 +157,13 @@ puts Source2MD::Section.new(<<~EOS).to_md
 EOS
 ```
 
-> # Title Level 1 #
->
-> ## Title Level 2 ##
->
-> ### Title Level 3 ###
+```
+# Title Level 1 #
+
+## Title Level 2 ##
+
+### Title Level 3 ###
+```
 
 ### Org-mode table style ###
 

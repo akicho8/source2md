@@ -3,10 +3,10 @@ require "./setup"
 
 ### Code include ###
 
+Insert inside the code block.
+
 #+BEGIN_SRC
-File.write("/tmp/hello.html", <<~EOS)
-<p>Hello</p>
-EOS
+File.write("/tmp/hello.html", "<p>Hello</p>")
 
 puts Source2MD::Section.new(<<~EOS).to_md
   #+code_include: /tmp/hello.html
