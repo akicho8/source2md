@@ -1,19 +1,19 @@
 module Source2MD
   class Scanner
-    SEPARATOR           = "\\R{2,}"
+    SEPARATOR = "\\R{2,}"
 
-    # MD_CODE_BLOCK_REGEXP = /^# ```.*?^# ```/m
+    # MD_CODE_BLOCK_RE = /^# ```.*?^# ```/m
 
-    BEGIN_KEY           = "BEGIN_SRC"
-    END_KEY             = "END_SRC"
-    SOURCE_BLOCK_REGEXP = /^#\+#{BEGIN_KEY}.*?^#\+#{END_KEY}/m
+    SRC_BEGIN_KEY = "BEGIN_SRC"
+    SRC_END_KEY   = "END_SRC"
+    SRC_BLOCK_RE  = /^#\+#{SRC_BEGIN_KEY}.*?^#\+#{SRC_END_KEY}/m
 
-    NORMAL_BLOCK_REGEXP = /.*?#{SEPARATOR}/m
+    NORMAL_BLOCK_RE = /.*?#{SEPARATOR}/m
 
-    PARAGRAPH_REGEXP = Regexp.union [
-      # MD_CODE_BLOCK_REGEXP,
-      SOURCE_BLOCK_REGEXP,
-      NORMAL_BLOCK_REGEXP,
+    PARAGRAPH_RE = Regexp.union [
+      # MD_CODE_BLOCK_RE,
+      SRC_BLOCK_RE,
+      NORMAL_BLOCK_RE,
     ]
 
     def initialize(content)
@@ -26,7 +26,7 @@ module Source2MD
         v = v.remove(/^# >>.*$/)
       end
       v = v + "\n\n"
-      v = v.scan(PARAGRAPH_REGEXP)
+      v = v.scan(PARAGRAPH_RE)
       v = v.collect(&:strip)
       v = v.find_all(&:present?)
     end
