@@ -17,12 +17,11 @@ module Source2MD
 
       def body
         s = element.body.remove(REGEXP)
-        s = oneline(s)
-      end
-
-      def oneline(s)
         if element.head["oneline"] == "true"
           s = TextHelper.oneline(s)
+        end
+        if element.head["hankaku_kana"] == "true"
+          s = TextHelper.hankaku_kana(s)
         end
         s
       end

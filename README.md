@@ -283,6 +283,19 @@ EOS
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 > ```
 
+### Hankaku Kana ###
+
+JISX0208 Katakana to JISX0201 Katakana
+
+```ruby
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+hankaku_kana: true
+  # ｱア
+EOS
+```
+
+> ｱｱ
+
 ### Parse include ###
 
 Paste the results of processing other files with the same rules.

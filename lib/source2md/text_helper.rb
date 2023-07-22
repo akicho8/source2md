@@ -13,5 +13,9 @@ module Source2MD
     def oneline(text)
       text.remove(/\R/)
     end
+
+    def hankaku_kana(text)
+      NKF.nkf("-wxZ4", text)
+    end
   end
 end

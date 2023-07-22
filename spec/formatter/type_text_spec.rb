@@ -13,7 +13,7 @@ EOS
 EOS
     end
 
-    it "works" do
+    it "oneline" do
       actual = Element.new(<<~EOS).to_md
 #+oneline: true
 # a
@@ -25,6 +25,14 @@ EOS
       actual.should == <<~EOS.strip
 abcd
 EOS
+    end
+
+    it "hankaku_kana" do
+      actual = Element.new(<<~EOS).to_md
+#+hankaku_kana: true
+# ｱア
+EOS
+      actual.should == "ｱｱ"
     end
   end
 end

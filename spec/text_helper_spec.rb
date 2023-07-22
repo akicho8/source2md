@@ -11,5 +11,9 @@ module Source2MD
       assert { TextHelper.add_newline_at_end_of_text("A\n") == "A\n"   }
       assert { TextHelper.add_newline_at_end_of_text("A\n\n") == "A\n" }
     end
+
+    it "hankaku_kana" do
+      assert { TextHelper.hankaku_kana("ｱア") == "ｱｱ" }
+    end
   end
 end
