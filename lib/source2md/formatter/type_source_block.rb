@@ -6,6 +6,9 @@ module Source2MD
       end
 
       def to_md
+        if code_block_desc_keywords.include?("hidden!")
+          return ""
+        end
         CodeBlock.new(body, desc: code_block_desc).to_md
       end
 
@@ -19,6 +22,10 @@ module Source2MD
         if md = element.body.match(/#\+BEGIN_SRC(.+)/)
           md.captures.first.strip
         end
+      end
+
+      def code_block_desc_keywords
+        code_block_desc.to_s.split(/\s+/).to_set
       end
     end
   end

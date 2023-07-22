@@ -27,5 +27,14 @@ module Source2MD
 ```
       EOS
     end
+
+    it "works" do
+      actual = Element.new(<<~EOS).to_md
+      #+BEGIN_SRC diff xxx:yyy hidden!
+      (foo)
+      #+END_SRC
+      EOS
+      actual.should == ""
+    end
   end
 end

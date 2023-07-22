@@ -72,14 +72,8 @@ EOS
 puts Source2MD::Section.new(<<~EOS).to_md
   #+hidden: true
   p "This paragraph is not displayed"
-
-  p "This paragraph is displayed"
 EOS
 ```
-
-> ```ruby
-> p "This paragraph is displayed"
-> ```
 
 ### Code include ###
 

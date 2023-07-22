@@ -7,11 +7,13 @@ require "./setup"
 puts Source2MD::Section.new(<<~EOS).to_md
   #+hidden: true
   p "This paragraph is not displayed"
-
-  p "This paragraph is displayed"
 EOS
 #+END_SRC
 
-# > ```ruby
-# > p "This paragraph is displayed"
-# > ```
+#+BEGIN_SRC
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+BEGIN_SRC hidden!
+  p "This paragraph is not displayed"
+  #+END_SRC
+EOS
+#+END_SRC
