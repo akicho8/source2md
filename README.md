@@ -77,9 +77,7 @@ EOS
 
 ### Code include ###
 
-```ruby
 Insert inside the code block.
-```
 
 ```ruby
 File.write("/tmp/hello.html", "<p>Hello</p>")

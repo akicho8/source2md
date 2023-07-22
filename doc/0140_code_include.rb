@@ -3,7 +3,7 @@ require "./setup"
 
 ### Code include ###
 
-Insert inside the code block.
+# Insert inside the code block.
 
 #+BEGIN_SRC
 File.write("/tmp/hello.html", "<p>Hello</p>")
