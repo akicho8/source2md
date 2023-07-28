@@ -11,7 +11,11 @@ module Source2MD
     end
 
     def oneline(text)
-      text.remove(/\R/)
+      text.remove(/\R+/)
+    end
+
+    def squish(text)
+      text.gsub(/[[:space:]]+/, " ").strip
     end
 
     def hankaku_kana(text)

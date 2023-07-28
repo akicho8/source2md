@@ -27,6 +27,20 @@ abcd
 EOS
     end
 
+    it "squish" do
+      actual = Element.new(<<~EOS).to_md
+#+squish: true
+# a
+# b
+#
+# c
+# d
+EOS
+      actual.should == <<~EOS.strip
+a b c d
+EOS
+    end
+
     it "hankaku_kana" do
       actual = Element.new(<<~EOS).to_md
 #+hankaku_kana: true

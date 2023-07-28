@@ -17,6 +17,9 @@ module Source2MD
 
       def body
         s = element.body.remove(REGEXP)
+        if element.head["squish"] == "true"
+          s = TextHelper.squish(s)
+        end
         if element.head["oneline"] == "true"
           s = TextHelper.oneline(s)
         end

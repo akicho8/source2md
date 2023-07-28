@@ -283,9 +283,25 @@ EOS
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 > ```
 
+### Squish Text ###
+
+Single spaces for line breaks and consecutive spaces.
+
+```ruby
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+squish: true
+  #  Lorem  ipsum  dolor  sit  amet,  consectetur  adipisicing  elit,
+  #  sed  do  eiusmod  tempor  incididunt  ut  labore  et  dolore  magna  aliqua.
+EOS
+```
+
+> ```
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+> ```
+
 ### Hankaku Kana ###
 
-JISX0208 Katakana to JISX0201 Katakana
+JISX0208 Katakana to JISX0201 Katakana.
 
 ```ruby
 puts Source2MD::Section.new(<<~EOS).to_md
