@@ -8,6 +8,9 @@ module Source2MD
 
     def call
       output_file.write(to_md)
+      if Source2MD.readonly
+        FileUtils.chmod("a-w", output_file)
+      end
       puts "write: #{output_file}"
     end
 

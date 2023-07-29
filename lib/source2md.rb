@@ -14,6 +14,7 @@ module Source2MD
   include ActiveSupport::Configurable
   config_accessor(:debug) { false }
   config_accessor(:xmp_out_exclude) { false }
+  config_accessor(:readonly) { true }
 end
 
 require "zeitwerk"

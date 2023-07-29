@@ -2,6 +2,7 @@ module Source2MD
   class Cli < Thor
     class_option :debug,           type: :boolean, aliases: "-d", default: false
     class_option :xmp_out_exclude, type: :boolean, aliases: "-x", default: false
+    class_option :readonly, type: :boolean, default: true
 
     def initialize(...)
       super
@@ -12,6 +13,7 @@ module Source2MD
       end
 
       Source2MD.xmp_out_exclude = options[:xmp_out_exclude]
+      Source2MD.readonly = options[:readonly]
 
       tp Source2MD.config
     end

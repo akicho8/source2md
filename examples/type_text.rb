@@ -2,7 +2,7 @@
 require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
-#+oneline: true
+#+squish: true
 # a
 # b
 #
