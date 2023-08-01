@@ -7,6 +7,9 @@ module Source2MD
     end
 
     def call
+      if output_file.exist?
+        FileUtils.chmod("a+w", output_file)
+      end
       output_file.write(to_md)
       if Source2MD.readonly
         FileUtils.chmod("a-w", output_file)
