@@ -1,6 +1,6 @@
 module Source2MD
   class Element
-    KEY_VALUE_REGEXP = /^#\+(\S+):\s*(.*)\R?/ # #+key: value
+    KEY_VALUE_REGEXP = /^(?:#|\/\/)\+(\S+):\s*(.*)\R?/ # #+key: value
 
     PLUGINS = [
       Formatter::TypeHidden,       # #+hidden: true
