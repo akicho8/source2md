@@ -1,7 +1,7 @@
 module Source2MD
   class CodeBlock
     PADDING_KEEP = 2
-    MARK         = "# =>"
+    MARK         = /(?:#|\/\/) =>/
 
     attr_accessor :code
 
@@ -58,10 +58,10 @@ module Source2MD
     # end
 
     def comment_mark_justfiy(line)
-      line.gsub(/(.*?)\s*#{MARK}(.*)/) {
-        a, b = Regexp.last_match.captures
+      line.gsub(/(.*?)\s*(#{MARK})(.*)/) {
+        a, b, c = Regexp.last_match.captures
         space = " " * (PADDING_KEEP + (max - a.size))
-        [a, space, MARK, b].join
+        [a, space, b, c].join
       }
     end
 
@@ -72,7 +72,7 @@ module Source2MD
     def max
       @max ||= yield_self do
         av = lines
-        av = av.find_all { |e| e.include?(MARK) }
+        av = av.find_all { |e| e.match?(MARK) }
         av = av.collect { |e| e.gsub(/\s*#{MARK}.*/, "").size }
         av.max
       end
