@@ -7,14 +7,20 @@ module Source2MD
     end
 
     def call
-      if output_file.exist?
-        FileUtils.chmod("a+w", output_file)
+      if !output_file
+        puts to_md
       end
-      output_file.write(to_md)
-      if Source2MD.readonly
-        FileUtils.chmod("a-w", output_file)
+
+      if output_file
+        if output_file.exist?
+          FileUtils.chmod("a+w", output_file)
+        end
+        output_file.write(to_md)
+        if Source2MD.readonly
+          FileUtils.chmod("a-w", output_file)
+        end
+        puts "write: #{output_file}"
       end
-      puts "write: #{output_file}"
     end
 
     def to_md
@@ -34,7 +40,11 @@ module Source2MD
     end
 
     def output_file
-      @output_file ||= Pathname(params[:output_file]).expand_path
+      @output_file ||= yield_self do
+        if v = params[:output_file]
+          Pathname(v).expand_path
+        end
+      end
     end
   end
 end

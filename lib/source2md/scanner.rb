@@ -24,7 +24,7 @@ module Source2MD
       end
       v = v + "\n\n"
       v = v.scan(PARAGRAPH_RE)
-      v = v.collect(&:strip)
+      v = v.collect(&:rstrip)
       v = v.find_all(&:present?)
     end
   end

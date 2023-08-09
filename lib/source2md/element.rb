@@ -34,7 +34,7 @@ module Source2MD
     end
 
     def body
-      @body ||= @content.remove(KEY_VALUE_REGEXP).strip.freeze
+      @body ||= @content.remove(KEY_VALUE_REGEXP).rstrip.freeze
     end
 
     private

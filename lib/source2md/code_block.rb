@@ -65,8 +65,16 @@ module Source2MD
       }
     end
 
+    def raw_lines
+      @raw_lines ||= code.lines.collect(&:rstrip)
+    end
+
     def lines
-      @lines ||= code.strip.lines.collect(&:rstrip)
+      @lines ||= yield_self do
+        min = raw_lines.collect { |e| e.slice(/^\s*/).size }.min
+        re = /^\s{#{min}}/
+        raw_lines.collect { |e| e.remove(re) }
+      end
     end
 
     def max
