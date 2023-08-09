@@ -6,7 +6,7 @@ module Source2MD
       actual = Element.new(<<~EOS).to_md
 (foo)
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 ```ruby
 (foo)
 ```

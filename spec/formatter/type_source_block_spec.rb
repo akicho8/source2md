@@ -8,7 +8,7 @@ module Source2MD
       (foo)
       #+END_SRC
       EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 ```ruby
 (foo)
 ```
@@ -21,7 +21,7 @@ module Source2MD
       (foo)
       #+END_SRC
       EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 ```diff xxx:yyy
 (foo)
 ```

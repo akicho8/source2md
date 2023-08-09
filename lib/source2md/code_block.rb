@@ -1,24 +1,24 @@
 module Source2MD
   class CodeBlock
     PADDING_KEEP = 2
-    MARK         = /(?:#|\/\/) =>/
+    MARK         = %r{(?:#|//) =>}
 
     attr_accessor :code
 
     def initialize(code, options = {})
       @code = code
       @options = {
-        :lang => "ruby",
+        :lang => ENV["DEFAULT_LANG"] || "ruby",
         # :single_sharp_replace_to_blank_line => false,
       }.merge(options)
     end
 
     def to_md
       [
-        "```#{code_block_head}",
+        "```#{code_block_head}\n",
         normalized_code,
-        "```",
-      ] * "\n"
+        "```\n",
+      ].join
     end
 
     private
@@ -40,14 +40,14 @@ module Source2MD
     end
 
     def normalized_code
-      lines.collect(&method(:normalize)) * "\n"
+      lines.collect(&method(:normalize)).join
     end
 
     def normalize(line)
       # if @options[:single_sharp_replace_to_blank_line]
       #   line = single_sharp_replace_to_blank_line(line)
       # end
-      if @options[:lang] == "ruby"
+      if @options[:lang] == "ruby" || @options[:lang] == "rust"
         line = comment_mark_justfiy(line)
       end
       line
@@ -66,7 +66,7 @@ module Source2MD
     end
 
     def raw_lines
-      @raw_lines ||= code.lines.collect(&:rstrip)
+      @raw_lines ||= code.lines
     end
 
     def lines
@@ -81,7 +81,7 @@ module Source2MD
       @max ||= yield_self do
         av = lines
         av = av.find_all { |e| e.match?(MARK) }
-        av = av.collect { |e| e.gsub(/\s*#{MARK}.*/, "").size }
+        av = av.collect { |e| e.gsub(/\s*#{MARK}.*\R/, "").size }
         av.max
       end
     end

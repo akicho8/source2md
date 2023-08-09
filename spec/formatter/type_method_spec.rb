@@ -3,7 +3,7 @@ require "spec_helper"
 module Source2MD
   describe do
     it "works" do
-      actual = Element.new(<<~EOS).to_md
+      actual = Element.new(TextHelper.indent(<<~EOS)).to_md
 #+name: (name)
 #+desc: (desc)
 #+comment: (comment)
@@ -11,7 +11,7 @@ module Source2MD
 #
 (code2)
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 ### (name) ###
 
 (desc)
@@ -23,6 +23,7 @@ EOS
 ```
 
 (comment)
+
       EOS
     end
   end

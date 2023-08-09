@@ -6,7 +6,7 @@ module Source2MD
       actual = Element.new(<<~EOS).to_md
 #+raw_include: #{__dir__}/sample.yml
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 (yaml)
       EOS
     end

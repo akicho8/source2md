@@ -1,6 +1,6 @@
 module Source2MD
   class Element
-    KEY_VALUE_REGEXP = /^(?:#|\/\/)\+(\S+):\s*(.*)\R?/ # #+key: value
+    KEY_VALUE_REGEXP = /^\s*(?:#|\/\/)\+(\S+):\s*(.*)\R?/ # #+key: value
 
     PLUGINS = [
       Formatter::TypeHidden,       # #+hidden: true
@@ -34,13 +34,21 @@ module Source2MD
     end
 
     def body
-      @body ||= @content.remove(KEY_VALUE_REGEXP).rstrip.freeze
+      @body ||= @content.remove(KEY_VALUE_REGEXP).freeze
     end
 
     private
 
     def support_klass
-      @support_klass ||= PLUGINS.find { |e| e.accept?(self) }
+      @support_klass ||= yield_self do
+        Source2MD.logger.debug { "head: #{head.inspect}" }
+        Source2MD.logger.debug { "body: #{body.inspect}" }
+        PLUGINS.find do |e|
+          e.accept?(self).tap do |result|
+            Source2MD.logger.debug { "#{e} => #{result}" }
+          end
+        end
+      end
     end
 
     def debug_log(object)

@@ -3,7 +3,7 @@ module Source2MD
     class TypeText < Base
       # "# xxx"
       # "#"
-      REGEXP = /^#( |$)/
+      REGEXP = %r{^\s*(?:#|//)( |$)}
 
       def self.accept?(element)
         element.body.lines.all? { |e| e.match?(REGEXP) }
@@ -26,7 +26,7 @@ module Source2MD
         if element.head["hankaku_kana"] == "true"
           s = TextHelper.hankaku_kana(s)
         end
-        s
+        TextHelper.eol_enter(s)
       end
     end
   end

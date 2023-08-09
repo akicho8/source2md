@@ -6,18 +6,26 @@ module Source2MD
       end
 
       def to_md
-        [
-          "### #{element.head["name"]} ###",
-          element.head["desc"],
-          CodeBlock.new(body).to_md,
-          element.head["comment"],
-        ].compact * "\n\n"
+        o = []
+        o << "### #{element.head["name"]} ###\n"
+        if v = element.head["desc"]
+          o << "\n"
+          o << v + "\n"
+          o << "\n"
+        end
+        o << CodeBlock.new(body).to_md
+        if v = element.head["comment"]
+          o << "\n"
+          o << v + "\n"
+          o << "\n"
+        end
+        o.join
       end
 
       private
 
       def body
-        element.body.gsub(/^\#$/, "")
+        element.body.gsub(%r{(#|//)$}, "")
       end
     end
   end

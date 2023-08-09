@@ -1,2 +1,2 @@
 #!/bin/sh
-source2md generate -d a.rs
+../.bin/source2md generate -d cli-test.rs

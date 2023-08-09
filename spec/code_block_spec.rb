@@ -9,7 +9,8 @@ module Source2MD
         bb   # => 2
         cccc
       EOS
-      s.should == <<~EOS.strip
+
+      s.should == <<~EOS
         ```ruby
         a   # => 1
         #

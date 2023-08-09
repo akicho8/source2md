@@ -19,12 +19,12 @@ module Source2MD
 
     def to_a
       v = @content
+      v = v.rstrip + "\n\n"
       if Source2MD.xmp_out_exclude
         v = v.remove(/^# >>.*$/)
       end
-      v = v + "\n\n"
       v = v.scan(PARAGRAPH_RE)
-      v = v.collect(&:rstrip)
+      v = v.collect { |e| e.rstrip + "\n" }
       v = v.find_all(&:present?)
     end
   end

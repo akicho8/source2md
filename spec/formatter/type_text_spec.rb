@@ -3,11 +3,12 @@ require "spec_helper"
 module Source2MD
   describe do
     it "works" do
+      # Source2MD.logger.level = :debug
       actual = Element.new(<<~EOS).to_md
 # - foo
 #   http://example.com/
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 - foo
   http://example.com/
 EOS
@@ -22,7 +23,7 @@ EOS
 # c
 # d
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 abcd
 EOS
     end
@@ -36,7 +37,7 @@ EOS
 # c
 # d
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 a b c d
 EOS
     end
@@ -46,7 +47,7 @@ EOS
 #+hankaku_kana: true
 # ｱア
 EOS
-      actual.should == "ｱｱ"
+      actual.should == "ｱｱ\n"
     end
   end
 end

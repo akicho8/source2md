@@ -6,7 +6,7 @@ module Source2MD
       actual = Element.new(<<~EOS).to_md
 #+code_include: #{__dir__}/sample.yml
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 ```yml:sample.yml
 (yaml)
 ```
@@ -19,7 +19,7 @@ EOS
 #+lang: (lang)
 #+name: (name)
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 ```(lang):(name)
 (yaml)
 ```
@@ -30,7 +30,7 @@ EOS
       actual = Element.new(<<~EOS).to_md
 #+code_include: #{__dir__}/sample.yml yaml:filename
 EOS
-      actual.should == <<~EOS.strip
+      actual.should == <<~EOS
 ```yaml:filename
 (yaml)
 ```

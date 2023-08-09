@@ -6,7 +6,8 @@ module Source2MD
       end
 
       def to_md
-        Pathname(element.head["raw_include"]).expand_path.read.strip
+        s = Pathname(element.head["raw_include"]).expand_path.read
+        TextHelper.eol_enter(s)
       end
     end
   end

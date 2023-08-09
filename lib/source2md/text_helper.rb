@@ -21,5 +21,13 @@ module Source2MD
     def hankaku_kana(text)
       NKF.nkf("-wxZ4", text)
     end
+
+    def indent(text)
+      text.gsub(/^/, "  ")
+    end
+
+    def eol_enter(text)
+      text.rstrip + "\n"
+    end
   end
 end

@@ -22,7 +22,7 @@ module Source2MD
       end
 
       def body
-        path.read.strip
+        TextHelper.eol_enter(path.read)
       end
 
       def code_block_options
