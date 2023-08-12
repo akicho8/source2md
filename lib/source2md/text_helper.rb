@@ -18,8 +18,8 @@ module Source2MD
       NKF.nkf("-wxZ4", text)
     end
 
-    def indent(text)
-      text.gsub(/^/, "  ")
+    def indent(text, size = 2)
+      text.gsub(/^/, " " * size)
     end
 
     def eol_enter(text)

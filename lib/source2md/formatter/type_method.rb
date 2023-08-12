@@ -25,7 +25,7 @@ module Source2MD
       private
 
       def body
-        element.body.gsub(%r{(#|//)$}, "")
+        element.body.gsub(%r{(#{RE.comment_re})$}, "")
       end
     end
   end

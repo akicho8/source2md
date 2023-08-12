@@ -1,3 +1,5 @@
+
+
 # Source2MD: Markdown generator from source code #
 
 ## Logic ##
@@ -75,6 +77,14 @@ puts Source2MD::Section.new(<<~EOS).to_md
 EOS
 ```
 
+```ruby
+puts Source2MD::Section.new(<<~EOS).to_md
+  #+BEGIN_SRC hidden!
+  p "This paragraph is not displayed"
+  #+END_SRC
+EOS
+```
+
 ### Code include ###
 
 Insert inside the code block.
@@ -124,28 +134,6 @@ puts Source2MD::Section.new(<<~EOS).to_md
   #+title2: Title Level 2
 
   #+title3: Title Level 3
-EOS
-```
-
-```
-# Title Level 1 #
-
-## Title Level 2 ##
-
-### Title Level 3 ###
-```
-
-### Markdown style title ###
-
-The condition is that there are the same number of sharps on the back.
-
-```ruby
-puts Source2MD::Section.new(<<~EOS).to_md
-  # Title Level 1 #
-
-  ## Title Level 2 ##
-
-  ### Title Level 3 ###
 EOS
 ```
 

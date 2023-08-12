@@ -3,7 +3,7 @@ module Source2MD
     class TypeText < Base
       # "# xxx"
       # "#"
-      REGEXP = %r{^\s*(?:#|//)( |$)}
+      REGEXP = %r{#{RE.meta_re}( |$)}
 
       def self.accept?(element)
         if element.body.present?

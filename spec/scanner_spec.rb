@@ -25,19 +25,3 @@ module Source2MD
     end
   end
 end
-# >> F
-# >> 
-# >> Failures:
-# >> 
-# >>   1) Source2MD::Scanner works
-# >>      Failure/Error: Unable to find - to read failed line
-# >>      Test::Unit::AssertionFailedError:
-# >>      # -:25:in `block (2 levels) in <module:Source2MD>'
-# >> 
-# >> Finished in 0.01112 seconds (files took 0.26074 seconds to load)
-# >> 1 example, 1 failure
-# >> 
-# >> Failed examples:
-# >> 
-# >> rspec -:5 # Source2MD::Scanner works
-# >> 

@@ -23,6 +23,7 @@ loader = Zeitwerk::Loader.for_gem
 loader.ignore("#{__dir__}/source2md/logger.rb")
 loader.ignore("#{__dir__}/source2md/**/_*.rb")
 loader.inflector.inflect("source2md" => "Source2MD")
+loader.inflector.inflect("re" => "RE")
 loader.log! if false
 loader.setup
 

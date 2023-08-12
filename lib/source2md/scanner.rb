@@ -1,18 +1,5 @@
 module Source2MD
   class Scanner
-    SEPARATOR = "\\R{2,}"
-
-    SRC_BEGIN_KEY = "BEGIN_SRC"
-    SRC_END_KEY   = "END_SRC"
-    SRC_BLOCK_RE  = %r{^\s*(?:#|//)\+#{SRC_BEGIN_KEY}.*?^\s*(?:#|//)\+#{SRC_END_KEY}}m
-
-    NORMAL_BLOCK_RE = /.*?#{SEPARATOR}/m
-
-    PARAGRAPH_RE = Regexp.union [
-      SRC_BLOCK_RE,
-      NORMAL_BLOCK_RE,
-    ]
-
     def initialize(content)
       @content = content
     end
@@ -21,11 +8,29 @@ module Source2MD
       v = @content
       v = v.rstrip + "\n\n"
       if Source2MD.xmp_out_exclude
-        v = v.remove(%r{^(?:#|//) >>.*$})
+        v = v.remove(RE.stdout_re)
       end
-      v = v.scan(PARAGRAPH_RE)
+      v = v.scan(paragraph_re)
       v = v.collect { |e| e.rstrip + "\n" }
       v = v.find_all(&:present?)
+    end
+
+    private
+
+    def paragraph_re
+      Regexp.union(src_block_re, normal_block_re)
+    end
+
+    def src_block_re
+      %r{#{RE.meta_re}\+BEGIN_SRC.*?#{RE.meta_re}\+END_SRC}m
+    end
+
+    def normal_block_re
+      /.*?#{separator}/m
+    end
+
+    def separator
+      "\\R{2,}"
     end
   end
 end

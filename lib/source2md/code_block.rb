@@ -1,7 +1,7 @@
 module Source2MD
   class CodeBlock
     PADDING_KEEP = 2
-    MARK         = %r{(?:#|//) =>}
+    ARROW_MARK         = %r{(?:#{RE.comment_re}) =>}
 
     def initialize(text, options = {})
       @text = text
@@ -45,15 +45,15 @@ module Source2MD
       # if @options[:single_sharp_replace_to_blank_line]
       #   line = single_sharp_replace_to_blank_line(line)
       # end
-      comment_mark_justfiy(line)
+      comment_re_justfiy(line)
     end
 
     # def single_sharp_replace_to_blank_line(line)
     #   line.gsub(/\A#\z/, "")
     # end
 
-    def comment_mark_justfiy(line)
-      line.gsub(/(.*?)\s*(#{MARK})(.*)/) {
+    def comment_re_justfiy(line)
+      line.gsub(/(.*?)\s*(#{ARROW_MARK})(.*)/) {
         a, b, c = Regexp.last_match.captures
         space = " " * (PADDING_KEEP + (max - a.size))
         [a, space, b, c].join
@@ -71,8 +71,8 @@ module Source2MD
     def max
       @max ||= yield_self do
         av = lines
-        av = av.find_all { |e| e.match?(MARK) }
-        av = av.collect { |e| e.gsub(/\s*#{MARK}.*\R/, "").size }
+        av = av.find_all { |e| e.match?(ARROW_MARK) }
+        av = av.collect { |e| e.gsub(/\s*#{ARROW_MARK}.*\R/, "").size }
         av.max
       end
     end

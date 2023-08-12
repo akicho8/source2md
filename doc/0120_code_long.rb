@@ -22,10 +22,11 @@ EOS
 # >
 # > hello.call
 # > ```
+# >> ["/Users/ikeda/src/zenn/source2md/lib/source2md/scanner.rb:14", :to_a, /(?m-ix:(?-mix:(?-mix:^)(?:(?-mix:#|\/\/)))\+BEGIN_SRC.*?(?-mix:(?-mix:^)(?:(?-mix:#|\/\/)))\+END_SRC)|(?m-ix:.*?\R{2,})/]
 # >> ```ruby
 # >> hello = -> {
 # >>   "Hello, world!"
 # >> }
-# >>
+# >> 
 # >> hello.call
 # >> ```

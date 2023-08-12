@@ -1,7 +1,5 @@
 module Source2MD
   class Element
-    KEY_VALUE_REGEXP = /^\s*(?:#|\/\/)\+(\S+):\s*(.*)\R?/ # #+key: value
-
     PLUGINS = [
       Formatter::TypeHidden,       # #+hidden: true
       Formatter::TypeCodeInclude,  # #+code_include: path/to/foo.html xml:SAMPLE.xml
@@ -29,11 +27,11 @@ module Source2MD
     end
 
     def head
-      @head ||= @content.scan(KEY_VALUE_REGEXP).to_h.freeze
+      @head ||= @content.scan(key_value_regexp).to_h.freeze
     end
 
     def body
-      @body ||= @content.remove(KEY_VALUE_REGEXP).freeze
+      @body ||= @content.remove(key_value_regexp).freeze
     end
 
     private
@@ -64,6 +62,11 @@ module Source2MD
         s = o.compact * "\n"
         s.gsub(/^/, "> ")
       end
+    end
+
+    # #+key: value
+    def key_value_regexp
+      /^#{RE.meta_re}\+(\S+):\s*(.*)\R?/
     end
   end
 end

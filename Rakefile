@@ -11,7 +11,7 @@ namespace :doc do
   task "generate" do
     Rake::Task["doc:renum"].execute
     system "sh", "-vec", <<~EOT, exception: true
-.bin/source2md generate --no-debug --no-xmp-out-exclude -o README.md doc/0*
+.bin/source2md generate --no-debug --xmp-out-exclude --prefix_re '^' -o README.md doc/0*
 EOT
   end
 
