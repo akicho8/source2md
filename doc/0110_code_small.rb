@@ -1,7 +1,7 @@
 #+hidden: true
 require "./setup"
 
-### Code snippet ###
+#+title3: Code snippet
 
 # Separated by blank lines.
 
@@ -24,3 +24,13 @@ EOS
 # > ```ruby
 # > hello.call
 # > ```
+# >> ```ruby
+# >> hello = -> {
+# >>   "Hello, world!"
+# >> }
+# >> ```
+# >> 
+# >> 
+# >> ```ruby
+# >> hello.call
+# >> ```

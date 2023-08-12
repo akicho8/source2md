@@ -1,7 +1,7 @@
 #+hidden: true
 require "./setup"
 
-### Code include ###
+#+title3: Code include
 
 # Insert inside the code block.
 
@@ -24,3 +24,11 @@ EOS
 # > <p>Hello</p>
 # > ```
 # > ````
+# >> ```html:hello.html
+# >> <p>Hello</p>
+# >> ```
+# >> 
+# >> 
+# >> ```xml:OUTPUT
+# >> <p>Hello</p>
+# >> ```

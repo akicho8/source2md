@@ -1,19 +1,19 @@
 #+hidden: true
 require "./setup"
 
-### Explain method simply ###
+#+title3: Explain method simply
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
   #+name: String#size
   #+desc: Return the number of characters
   #+comment: Comments about size
-  "abc".size                        # => 3
+  "abc".size  # => 3
 
   #+name: String#reverse
   #+desc: reverse the sequence of characters
   #+comment: Comments about reverse
-  "abc".reverse                   # => "cba"
+  "abc".reverse  # => "cba"
 EOS
 #+END_SRC
 

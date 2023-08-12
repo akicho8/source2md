@@ -1,7 +1,7 @@
 #+hidden: true
 require "./setup"
 
-### Org-mode table style ###
+#+title3: Org-mode table style
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md

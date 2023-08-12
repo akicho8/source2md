@@ -1,7 +1,7 @@
 #+hidden: true
 require "./setup"
 
-### Source block with many lines ###
+#+title3: Source block with many lines
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
@@ -22,3 +22,10 @@ EOS
 # >
 # > hello.call
 # > ```
+# >> ```ruby
+# >> hello = -> {
+# >>   "Hello, world!"
+# >> }
+# >>
+# >> hello.call
+# >> ```

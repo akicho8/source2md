@@ -1,7 +1,7 @@
 #+hidden: true
 require "./setup"
 
-### Warning and Alert message ###
+#+title3: Warning and Alert message
 
 # Exclusive to Zenn
 
@@ -24,3 +24,10 @@ EOS
 # > this is alert message
 # > :::
 # > ```
+# >> :::message
+# >> this is warning message
+# >> :::
+# >> 
+# >> :::message alert
+# >> this is alert message
+# >> :::

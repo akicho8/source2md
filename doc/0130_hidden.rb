@@ -1,7 +1,7 @@
 #+hidden: true
 require "./setup"
 
-### Hide paragraph ###
+#+title3: Hide paragraph
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
@@ -17,3 +17,5 @@ puts Source2MD::Section.new(<<~EOS).to_md
   #+END_SRC
 EOS
 #+END_SRC
+# >>
+# >>
