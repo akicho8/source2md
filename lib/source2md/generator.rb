@@ -26,7 +26,7 @@ module Source2MD
     def to_md
       s = sections.collect(&:to_md) * "\n\n"
       s = TextHelper.blank_lines_squish(s)
-      s = TextHelper.add_newline_at_end_of_text(s)
+      s = TextHelper.eol_enter(s)
     end
 
     private

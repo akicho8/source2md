@@ -6,14 +6,18 @@ module Source2MD
       assert { TextHelper.blank_lines_squish("A\nB\n\nC\n\n\nD") == "A\nB\n\nC\n\nD" }
     end
 
-    it "add_newline_at_end_of_text" do
-      assert { TextHelper.add_newline_at_end_of_text("A") == "A\n"     }
-      assert { TextHelper.add_newline_at_end_of_text("A\n") == "A\n"   }
-      assert { TextHelper.add_newline_at_end_of_text("A\n\n") == "A\n" }
+    it "eol_enter" do
+      assert { TextHelper.eol_enter("A") == "A\n"     }
+      assert { TextHelper.eol_enter("A\n\n") == "A\n" }
     end
 
     it "hankaku_kana" do
       assert { TextHelper.hankaku_kana("ｱア") == "ｱｱ" }
+    end
+
+    it "space_prefix_remove" do
+      assert { TextHelper.space_prefix_remove(" a\n  b\n") == "a\n b\n" }
+      assert { TextHelper.space_prefix_remove(" a\n\n  b\n") == "a\n\n b\n" }
     end
   end
 end

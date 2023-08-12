@@ -2,7 +2,8 @@ module Source2MD
   class Cli < Thor
     class_option :debug,           type: :boolean, aliases: "-d", default: false
     class_option :xmp_out_exclude, type: :boolean, aliases: "-x", default: false
-    class_option :readonly,        type: :boolean, default: true
+    class_option :readonly,        type: :boolean, aliases: "-r", default: true
+    class_option :default_lang,    type: :string,  aliases: "-l", default: "ruby"
 
     def initialize(...)
       super
@@ -14,8 +15,7 @@ module Source2MD
 
       Source2MD.xmp_out_exclude = options[:xmp_out_exclude]
       Source2MD.readonly = options[:readonly]
-
-      tp Source2MD.config
+      Source2MD.default_lang = options[:default_lang]
     end
 
     # default_command :generate

@@ -3,12 +3,10 @@ module Source2MD
     PADDING_KEEP = 2
     MARK         = %r{(?:#|//) =>}
 
-    attr_accessor :code
-
-    def initialize(code, options = {})
-      @code = code
+    def initialize(text, options = {})
+      @text = text
       @options = {
-        :lang => ENV["DEFAULT_LANG"] || "ruby",
+        :lang => nil,
         # :single_sharp_replace_to_blank_line => false,
       }.merge(options)
     end
@@ -28,7 +26,7 @@ module Source2MD
       if s = @options[:desc]
         o << s
       else
-        if s = @options[:lang]
+        if s = lang
           o << s
         end
         if s = @options[:name]
@@ -47,10 +45,7 @@ module Source2MD
       # if @options[:single_sharp_replace_to_blank_line]
       #   line = single_sharp_replace_to_blank_line(line)
       # end
-      if @options[:lang] == "ruby" || @options[:lang] == "rust"
-        line = comment_mark_justfiy(line)
-      end
-      line
+      comment_mark_justfiy(line)
     end
 
     # def single_sharp_replace_to_blank_line(line)
@@ -66,15 +61,11 @@ module Source2MD
     end
 
     def raw_lines
-      @raw_lines ||= code.lines
+      @raw_lines ||= @text.lines
     end
 
     def lines
-      @lines ||= yield_self do
-        min = raw_lines.collect { |e| e.slice(/^\s*/).size }.min
-        re = /^\s{#{min}}/
-        raw_lines.collect { |e| e.remove(re) }
-      end
+      @lines ||= TextHelper.space_prefix_remove(@text).lines
     end
 
     def max
@@ -84,6 +75,10 @@ module Source2MD
         av = av.collect { |e| e.gsub(/\s*#{MARK}.*\R/, "").size }
         av.max
       end
+    end
+
+    def lang
+      @options[:lang] || ENV["DEFAULT_LANG"] || Source2MD.default_lang
     end
   end
 end

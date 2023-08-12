@@ -15,6 +15,7 @@ module Source2MD
   config_accessor(:debug) { false }
   config_accessor(:xmp_out_exclude) { false }
   config_accessor(:readonly) { true }
+  config_accessor(:default_lang) { "ruby" }
 end
 
 require "zeitwerk"

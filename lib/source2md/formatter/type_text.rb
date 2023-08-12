@@ -6,7 +6,9 @@ module Source2MD
       REGEXP = %r{^\s*(?:#|//)( |$)}
 
       def self.accept?(element)
-        element.body.lines.all? { |e| e.match?(REGEXP) }
+        if element.body.present?
+          element.body.lines.all? { |e| e.match?(REGEXP) }
+        end
       end
 
       def to_md

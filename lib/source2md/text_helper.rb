@@ -6,10 +6,6 @@ module Source2MD
       text.gsub(/\n{3,}/, "\n\n")
     end
 
-    def add_newline_at_end_of_text(text)
-      text.strip + "\n"
-    end
-
     def oneline(text)
       text.remove(/\R+/)
     end
@@ -28,6 +24,11 @@ module Source2MD
 
     def eol_enter(text)
       text.rstrip + "\n"
+    end
+
+    def space_prefix_remove(text)
+      min = text.lines.reject(&:blank?).collect { |e| e.slice(/^\s*/).size }.min
+      text.remove(/^ {#{min}}/)
     end
   end
 end

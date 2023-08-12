@@ -4,7 +4,7 @@ module Source2MD
 
     SRC_BEGIN_KEY = "BEGIN_SRC"
     SRC_END_KEY   = "END_SRC"
-    SRC_BLOCK_RE  = /^#\+#{SRC_BEGIN_KEY}.*?^#\+#{SRC_END_KEY}/m
+    SRC_BLOCK_RE  = %r{^\s*(?:#|//)\+#{SRC_BEGIN_KEY}.*?^\s*(?:#|//)\+#{SRC_END_KEY}}m
 
     NORMAL_BLOCK_RE = /.*?#{SEPARATOR}/m
 
@@ -21,7 +21,7 @@ module Source2MD
       v = @content
       v = v.rstrip + "\n\n"
       if Source2MD.xmp_out_exclude
-        v = v.remove(/^# >>.*$/)
+        v = v.remove(%r{^(?:#|//) >>.*$})
       end
       v = v.scan(PARAGRAPH_RE)
       v = v.collect { |e| e.rstrip + "\n" }
