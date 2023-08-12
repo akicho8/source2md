@@ -4,7 +4,6 @@ module Source2MD
 
     PLUGINS = [
       Formatter::TypeHidden,       # #+hidden: true
-      Formatter::TypeMdTitle,      # ## foo ##
       Formatter::TypeCodeInclude,  # #+code_include: path/to/foo.html xml:SAMPLE.xml
       Formatter::TypeRawInclude,   # #+raw_include: path/to/file.txt
       Formatter::TypeParseInclude, # #+parse_include: path/to/file.txt
