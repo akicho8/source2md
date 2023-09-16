@@ -32,7 +32,13 @@ module Source2MD
     end
 
     def files
-      @files ||= Array(params[:files]).collect { |e| Pathname(e).expand_path }
+      @files ||= yield_self do
+        if params[:glob]
+          Pathname.glob(params[:glob])
+        else
+          Array(params[:files]).collect { |e| Pathname(e).expand_path }
+        end
+      end
     end
 
     def output_file

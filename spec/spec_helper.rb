@@ -18,3 +18,11 @@ RSpec.configure do |config|
   config.expect_with :test_unit
   config.example_status_persistence_file_path = "#{__dir__}/.all_test_result.txt"
 end
+
+if true
+  require "tempfile"            # for capture
+  require "active_support/testing/stream"
+  RSpec.configure do |config|
+    config.include ActiveSupport::Testing::Stream
+  end
+end

@@ -34,6 +34,7 @@ module Source2MD
     map "g" => :generate
     desc "generate [files]", "Markdown generation"
     option :output_file, type: :string, aliases: "-o", default: nil
+    option :glob,        type: :string, aliases: "-g"
     def generate(*files)
       Generator.new(options.to_options.merge(files: files)).call
     end

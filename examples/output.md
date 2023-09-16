@@ -1,11 +1,30 @@
+## (title) ##
+
+### (name1) ###
+
+(desc1)
+
 ```ruby
-# ```yaml:config.yml
-#   frequencies: frequencies1.rb
-# ```
+"foo1".size  # => 4
 ```
 
-```ruby:frequencies1.rb
-def frequencies(words)
-  words.tally.sort_by { -_2 }.take(25)
-end
+(comment1)
+
+### (name2) ###
+
+(desc2)
+
+```ruby
+"foo2".size  # => 4
+```
+
+(comment2)
+
+| x | x | x |
+|---|---|---|
+| x | x | x |
+| x | x | x |
+
+```ruby
+1 + 2  # => 3
 ```
