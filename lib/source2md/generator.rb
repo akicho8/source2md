@@ -12,14 +12,10 @@ module Source2MD
       end
 
       if output_file
-        if output_file.exist?
-          FileUtils.chmod("a+w", output_file)
+        temporarily_disable_write_protection do
+          output_file.write(to_md)
+          puts "write: #{output_file}"
         end
-        output_file.write(to_md)
-        if Source2MD.readonly
-          FileUtils.chmod("a-w", output_file)
-        end
-        puts "write: #{output_file}"
       end
     end
 
@@ -44,6 +40,16 @@ module Source2MD
         if v = params[:output_file]
           Pathname(v).expand_path
         end
+      end
+    end
+
+    def temporarily_disable_write_protection
+      if output_file.exist?
+        FileUtils.chmod("a+w", output_file)
+      end
+      yield
+      if Source2MD.readonly
+        FileUtils.chmod("a-w", output_file)
       end
     end
   end

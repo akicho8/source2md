@@ -1,7 +1,7 @@
 module Source2MD
   class CodeBlock
     PADDING_KEEP = 2
-    ARROW_MARK         = %r{(?:#{RE.comment_re}) =>}
+    ARROW_MARK = %r{(?:#{RE.comment_re}) =>}
 
     def initialize(text, options = {})
       @text = text
