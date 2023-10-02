@@ -5,6 +5,9 @@ module Source2MD
     it "works" do
       actual = Element.new(<<~EOS).to_md
 (foo)
+__END__
+1
+2
 EOS
       actual.should == <<~EOS
 ```ruby

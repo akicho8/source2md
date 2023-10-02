@@ -10,6 +10,7 @@ Zeitwerk::Loader.eager_load_all
 
 Source2MD.logger.level = :error
 Source2MD.xmp_out_exclude = true
+Source2MD.data_block_exclude = true
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
