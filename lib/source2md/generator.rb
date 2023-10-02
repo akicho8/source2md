@@ -53,7 +53,9 @@ module Source2MD
       if output_file.exist?
         FileUtils.chmod("a+w", output_file)
       end
+
       yield
+
       if Source2MD.readonly
         FileUtils.chmod("a-w", output_file)
       end
