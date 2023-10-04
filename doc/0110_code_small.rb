@@ -11,6 +11,7 @@ puts Source2MD::Section.new(<<~EOS).to_md
     "Hello, world!"
   }
 
+  #+code_block_name: (name)
   hello.call
 EOS
 #+END_SRC
@@ -21,9 +22,10 @@ EOS
 # > }
 # > ```
 
-# > ```ruby
+# > ```ruby:(name)
 # > hello.call
 # > ```
+
 # >> ```ruby
 # >> hello = -> {
 # >>   "Hello, world!"
@@ -31,6 +33,6 @@ EOS
 # >> ```
 # >> 
 # >> 
-# >> ```ruby
+# >> ```ruby:(name)
 # >> hello.call
 # >> ```
