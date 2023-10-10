@@ -38,7 +38,7 @@ module Source2MD
     option :output_file, type: :string, aliases: "-o", default: nil
     option :glob,        type: :string, aliases: "-g"
     def generate(*files)
-      Generator.new(options.to_options.merge(files: files)).call
+      Generator.new(options.to_h.merge(files: files)).call
     end
   end
 end
