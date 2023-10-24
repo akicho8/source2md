@@ -1,5 +1,5 @@
+require "active_support"
 require "active_support/logger"
-require "active_support/isolated_execution_state"
 
 require "active_support/core_ext/hash"
 require "active_support/core_ext/string"
