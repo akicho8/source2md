@@ -4,7 +4,7 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
-#+set: 1 + 2
+#+eval: 1 + 2
 EOS
     end
   end

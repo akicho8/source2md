@@ -2,7 +2,7 @@ module Source2MD
   class Element
     PLUGINS = [
       Formatter::TypeHidden,       # #+hidden: true
-      Formatter::TypeSet,          # #+set:
+      Formatter::TypeEval,          # #+eval:
       Formatter::TypeCodeInclude,  # #+code_include: path/to/foo.html xml:SAMPLE.xml
       Formatter::TypeRawInclude,   # #+raw_include: path/to/file.txt
       Formatter::TypeParseInclude, # #+parse_include: path/to/file.txt

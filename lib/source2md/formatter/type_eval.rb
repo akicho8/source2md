@@ -1,12 +1,12 @@
 module Source2MD
   module Formatter
-    class TypeSet < Base
+    class TypeEval < Base
       def self.accept?(element)
-        element.head["set"]
+        element.head["eval"]
       end
 
       def to_md
-        eval(element.head["set"])
+        eval(element.head["eval"])
         ""
       end
     end
