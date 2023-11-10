@@ -78,7 +78,7 @@ module Source2MD
     end
 
     def lang
-      @options[:lang] || ENV["DEFAULT_LANG"] || Source2MD.default_lang
+      @options[:lang] || ENV["DEFAULT_LANG"] || Source2MD.lang_default
     end
   end
 end

@@ -7,6 +7,6 @@ require "./setup"
 
 #+BEGIN_SRC
 puts Source2MD::Section.new(<<~EOS).to_md
-  #+eval: Source2MD.default_lang = "shell"
+  #+eval: Source2MD.lang_default = "shell"
 EOS
 #+END_SRC
