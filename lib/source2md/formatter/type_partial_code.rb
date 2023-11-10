@@ -6,7 +6,7 @@ module Source2MD
       end
 
       def to_md
-        CodeBlock.new(body, name: element.head["code_block_name"]).to_md
+        CodeBlock.new(body, lang: element.head["code_block_lang"], name: element.head["code_block_name"]).to_md
       end
 
       private

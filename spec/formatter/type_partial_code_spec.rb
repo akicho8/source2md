@@ -5,13 +5,14 @@ module Source2MD
     it "works" do
       actual = Element.new(<<~EOS).to_md
 #+code_block_name: xxx
+#+code_block_lang: yyy
 (foo)
 __END__
 1
 2
 EOS
       actual.should == <<~EOS
-```ruby:xxx
+```yyy:xxx
 (foo)
 ```
       EOS
