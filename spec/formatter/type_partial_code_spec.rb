@@ -4,8 +4,8 @@ module Source2MD
   describe do
     it "works" do
       actual = Element.new(<<~EOS).to_md
-#+code_block_name: xxx
-#+code_block_lang: yyy
+#+partial_code_name: xxx
+#+partial_code_lang: yyy
 (foo)
 __END__
 1

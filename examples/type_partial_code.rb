@@ -4,14 +4,14 @@ require "./setup"
 Source2MD.data_block_exclude = true
 
 puts Source2MD::Element.new(<<~EOS).to_md
-  #+code_block_name: foo
+  #+partial_code_name: foo
   a
     b
   c
   __END__
   foo
 EOS
-# >> head: {"code_block_name"=>"foo"}
+# >> head: {"partial_code_name"=>"foo"}
 # >> body: "a\n  b\nc\n__END__\nfoo\n"
 # >> Source2MD::Formatter::TypeHidden => false
 # >> Source2MD::Formatter::TypeCodeInclude => 
@@ -26,7 +26,7 @@ EOS
 # >> Source2MD::Formatter::TypeText => false
 # >> Source2MD::Formatter::TypePartialCode => true
 # >> > -------------------------------------------------------------------------------- Source2MD::Formatter::TypePartialCode
-# >> > {"code_block_name"=>"foo"}
+# >> > {"partial_code_name"=>"foo"}
 # >> > ------------------------------------------------------------ in
 # >> > a
 # >> >   b

@@ -11,8 +11,8 @@ puts Source2MD::Section.new(<<~EOS).to_md
     "Hello, world!"
   }
 
-  #+code_block_name: (name)
-  #+code_block_lang: (ruby)
+  #+partial_code_name: (name)
+  #+partial_code_lang: (ruby)
   hello.call
 EOS
 #+END_SRC

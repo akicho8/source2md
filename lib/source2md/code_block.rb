@@ -6,7 +6,9 @@ module Source2MD
     def initialize(text, options = {})
       @text = text
       @options = {
+        :desc => nil,
         :lang => nil,
+        :name => nil,
         # :single_sharp_replace_to_blank_line => false,
       }.merge(options)
     end
@@ -21,6 +23,8 @@ module Source2MD
 
     private
 
+    # <-------------------> desc
+    # <- lang ->:<- name ->
     def code_block_head
       o = []
       if s = @options[:desc]
