@@ -19,5 +19,9 @@ module Source2MD
       assert { TextHelper.space_prefix_remove(" a\n  b\n") == "a\n b\n" }
       assert { TextHelper.space_prefix_remove(" a\n\n  b\n") == "a\n\n b\n" }
     end
+
+    it "data_block_exclude" do
+      assert { TextHelper.data_block_exclude("(before)\n__END__\n(after)") == "(before)\n" }
+    end
   end
 end

@@ -30,5 +30,9 @@ module Source2MD
       min = text.lines.reject(&:blank?).collect { |e| e.slice(/^\s*/).size }.min
       text.remove(/^ {#{min}}/)
     end
+
+    def data_block_exclude(text)
+      text.sub(/^__END__\R.*/m, "")
+    end
   end
 end

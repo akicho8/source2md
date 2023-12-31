@@ -12,8 +12,8 @@ module Source2MD
       private
 
       def body
-        if Source2MD.data_block_exclude
-          element.body.sub(/^__END__\R.*/m, "")
+        if element.head["data_block_exclude"] || Source2MD.data_block_exclude
+          TextHelper.data_block_exclude(element.body)
         else
           element.body
         end

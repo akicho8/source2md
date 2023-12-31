@@ -6,6 +6,7 @@ module Source2MD
       actual = Element.new(<<~EOS).to_md
 #+partial_code_name: xxx
 #+partial_code_lang: yyy
+#+data_block_exclude: true
 (foo)
 __END__
 1
