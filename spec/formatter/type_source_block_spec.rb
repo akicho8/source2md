@@ -39,7 +39,7 @@ module Source2MD
 
     it "works" do
       actual = Element.new(<<~EOS).to_md
-      #+BEGIN_SRC xxx:yyy data_block_exclude
+      #+BEGIN_SRC xxx:yyy data_block_exclude!
       (foo)
       __END__
       xxx
