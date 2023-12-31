@@ -28,6 +28,7 @@ module Source2MD
     def reset
       @meta_re = nil
       @stdout_re = nil
+      @text_prefix_re = nil
     end
   end
 end

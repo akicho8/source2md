@@ -2,3 +2,4 @@
 /*.gem
 /pkg
 /spec/.all_test_result.txt
+/*.el

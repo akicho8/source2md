@@ -14,6 +14,7 @@ EOS
 # >> head: {"partial_code_name"=>"foo"}
 # >> body: "a\n  b\nc\n__END__\nfoo\n"
 # >> Source2MD::Formatter::TypeHidden => false
+# >> Source2MD::Formatter::TypeEval => 
 # >> Source2MD::Formatter::TypeCodeInclude => 
 # >> Source2MD::Formatter::TypeRawInclude => 
 # >> Source2MD::Formatter::TypeParseInclude => 

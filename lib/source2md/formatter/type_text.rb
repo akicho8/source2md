@@ -1,13 +1,16 @@
 module Source2MD
   module Formatter
     class TypeText < Base
+
       # "# xxx"
       # "#"
-      REGEXP = %r{#{RE.meta_re}( |$)}
+      def self.regexp
+        %r{#{RE.meta_re}( |$)}
+      end
 
       def self.accept?(element)
         if element.body.present?
-          element.body.lines.all? { |e| e.match?(REGEXP) }
+          element.body.lines.all? { |e| e.match?(regexp) }
         end
       end
 
@@ -18,7 +21,7 @@ module Source2MD
       private
 
       def body
-        s = element.body.remove(REGEXP)
+        s = element.body.remove(self.class.regexp)
         if element.head["squish"] == "true"
           s = TextHelper.squish(s)
         end
