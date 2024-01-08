@@ -2,7 +2,7 @@ module Source2MD
   class Element
     PLUGINS = [
       Formatter::TypeHidden,       # #+hidden: true
-      Formatter::TypeEval,          # #+eval:
+      Formatter::TypeEval,         # #+eval:
       Formatter::TypeCodeInclude,  # #+code_include: path/to/foo.html xml:SAMPLE.xml
       Formatter::TypeRawInclude,   # #+raw_include: path/to/file.txt
       Formatter::TypeParseInclude, # #+parse_include: path/to/file.txt
@@ -12,8 +12,20 @@ module Source2MD
       Formatter::TypeMethod,       # #+name: foo
       Formatter::TypeTable,        # # |-
       Formatter::TypeSourceBlock,  # #+BEGIN_SRC
+
+      # Type that just removes the comment and does not wrap it
+      Formatter::TypeMdHeader,     # # ---
+      Formatter::TypeCodeBlock,    # # ```
+      Formatter::TypeQuote,        # # > xxx
+      Formatter::TypeList,         # # - xxx or 1. xxx
+
+      # Sentence (automatic wrap)
       Formatter::TypeText,         # # foo
+
+      # Code block without wrapping
       Formatter::TypePartialCode,  # 1 + 2 # => 3
+
+      # If not all match
       Formatter::TypeElse,
     ]
 

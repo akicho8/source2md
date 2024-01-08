@@ -7,7 +7,8 @@ module Source2MD
     end
 
     def oneline(text)
-      text.remove(/\R+/)
+      text = text.gsub(/？\R/, "？ ")
+      text = text.remove(/\R+/)
     end
 
     def squish(text)

@@ -25,9 +25,13 @@ module Source2MD
         if element.head["squish"] == "true"
           s = TextHelper.squish(s)
         end
-        if element.head["oneline"] == "true"
+
+        case
+        when element.head["oneline"] == "false"
+        when element.head["oneline"] == "true" || Source2MD.oneline
           s = TextHelper.oneline(s)
         end
+
         if element.head["hankaku_kana"] == "true"
           s = TextHelper.hankaku_kana(s)
         end

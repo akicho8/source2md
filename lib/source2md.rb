@@ -17,6 +17,7 @@ module Source2MD
   config_accessor(:readonly) { true }
   config_accessor(:lang_default) { "ruby" }
   config_accessor(:data_block_exclude) { false }
+  config_accessor(:oneline) { false }
 end
 
 require "zeitwerk"

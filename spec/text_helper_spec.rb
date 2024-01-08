@@ -6,6 +6,10 @@ module Source2MD
       assert { TextHelper.blank_lines_squish("A\nB\n\nC\n\n\nD") == "A\nB\n\nC\n\nD" }
     end
 
+    it "oneline" do
+      assert { TextHelper.oneline("？\nA") == "？ A" }
+    end
+
     it "eol_enter" do
       assert { TextHelper.eol_enter("A") == "A\n"     }
       assert { TextHelper.eol_enter("A\n\n") == "A\n" }
