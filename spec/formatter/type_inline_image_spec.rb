@@ -5,11 +5,11 @@ module Source2MD
     it "works" do
       actual = Element.new(<<~EOS).to_md
 # ![](https://example.com/image.png)
-# **(alt)**
+# *(alt)*
 EOS
       actual.should == <<~EOS
 ![](https://example.com/image.png)
-**(alt)**
+*(alt)*
 EOS
     end
   end

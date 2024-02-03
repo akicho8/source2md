@@ -3,11 +3,11 @@ require "./setup"
 
 puts Source2MD::Element.new(<<~EOS).to_md
 # ![](https://example.com/image.png)
-# **(alt)**
+# *(alt)*
 EOS
 
 # >> head: {}
-# >> body: "# ![](https://example.com/image.png)\n# **(alt)**\n"
+# >> body: "# ![](https://example.com/image.png)\n# *(alt)*\n"
 # >> Source2MD::Formatter::TypeHidden => false
 # >> Source2MD::Formatter::TypeEval => 
 # >> Source2MD::Formatter::TypeCodeInclude => 
@@ -28,13 +28,13 @@ EOS
 # >> > {}
 # >> > ------------------------------------------------------------ in
 # >> > # ![](https://example.com/image.png)
-# >> > # **(alt)**
+# >> > # *(alt)*
 # >> > 
 # >> > 
 # >> > ------------------------------------------------------------ out
 # >> > ![](https://example.com/image.png)
-# >> > **(alt)**
+# >> > *(alt)*
 # >> > 
 # >> > ------------------------------------------------------------
 # >> ![](https://example.com/image.png)
-# >> **(alt)**
+# >> *(alt)*
