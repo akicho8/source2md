@@ -18,6 +18,7 @@ module Source2MD
       Formatter::TypeCodeBlock,    # # ```
       Formatter::TypeQuote,        # # > xxx
       Formatter::TypeList,         # # - xxx or 1. xxx
+      Formatter::TypeUrlList,      # # http.*
       Formatter::TypeInlineImage,  # # ![]
 
       # Sentence (automatic wrap)

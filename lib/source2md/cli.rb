@@ -1,10 +1,10 @@
 module Source2MD
   class Cli < Thor
     class_option :debug,              type: :boolean, aliases: "-d", default: false
-    class_option :xmp_out_exclude,    type: :boolean, aliases: "-x", default: false
-    class_option :data_block_exclude, type: :boolean,                default: false
+    class_option :xmp_out_exclude,    type: :boolean, aliases: "-x", default: true
+    class_option :data_block_exclude, type: :boolean,                default: true
     class_option :readonly,           type: :boolean, aliases: "-r", default: true
-    class_option :oneline,            type: :boolean, aliases: "-1", default: false
+    class_option :oneline,            type: :boolean, aliases: "-1", default: true
     class_option :lang_default,       type: :string,  aliases: "-l", default: "ruby"
     class_option :prefix_re,          type: :string
     class_option :comment_re,         type: :string

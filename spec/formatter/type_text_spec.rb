@@ -49,5 +49,21 @@ EOS
 EOS
       actual.should == "ｱｱ\n"
     end
+
+    it "http" do
+      actual = Element.new(<<~EOS).to_md
+# http://
+# http://
+EOS
+      actual.should == <<~EOS
+http://
+http://
+EOS
+    end
   end
 end
+# >> .....
+# >> 
+# >> Finished in 0.00713 seconds (files took 0.33822 seconds to load)
+# >> 5 examples, 0 failures
+# >> 
