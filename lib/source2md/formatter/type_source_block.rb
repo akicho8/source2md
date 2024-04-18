@@ -47,7 +47,18 @@ module Source2MD
       end
 
       def clean_descs
-        option_list - OPTION_KEYS
+        lang_default_add(option_list - OPTION_KEYS)
+      end
+
+      # :yyy -> xxx:yyy
+      def lang_default_add(list)
+        list.collect do |e|
+          if e.start_with?(":")
+            Source2MD.lang_default + e
+          else
+            e
+          end
+        end
       end
     end
   end
