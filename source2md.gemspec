@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "table_format"
   spec.add_dependency "thor"
   spec.add_dependency "zeitwerk"
+  spec.add_dependency "nkf"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
