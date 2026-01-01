@@ -12,10 +12,11 @@ module Source2MD
       private
 
       def body
+        str = element.body.gsub(/^\s*#\s*$/, "") # body に # だけの行があれば空行にする
         if element.head["data_block_exclude"] || Source2MD.data_block_exclude
-          TextHelper.data_block_exclude(element.body)
+          TextHelper.data_block_exclude(str)
         else
-          element.body
+          str
         end
       end
 
