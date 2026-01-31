@@ -6,7 +6,9 @@ module Source2MD
       end
 
       def self.accept?(element)
-        element.body.match(regexp)
+        if element.body.present?
+          element.body.lines.all? { |e| e.match?(regexp) }
+        end
       end
 
       def to_md

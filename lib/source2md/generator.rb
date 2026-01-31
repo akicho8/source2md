@@ -1,3 +1,5 @@
+require "fileutils"
+
 module Source2MD
   class Generator
     attr_accessor :params
